@@ -1,24 +1,19 @@
-import { Fragment } from 'react'
-import { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
-import './App.css'
-import Header from './components/header/Header.component'
-import { GlobalStyles } from './theme'
+import { Fragment } from 'react';
+import { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import Header from './components/header/Header.component';
+import { GlobalStyles } from './theme';
 
 function App() {
- 
-
   return (
     <Fragment>
-      <GlobalStyles/>
-    <div >
-     <Header >
-      Header
-     </Header>
-    </div>
+      <GlobalStyles />
+
+      <Header />
     </Fragment>
-   
-  )
+  );
 }
 
-export default App
+export default App;
