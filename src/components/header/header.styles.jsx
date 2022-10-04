@@ -17,10 +17,17 @@ export const HeaderContainer = styled.div`
 export const IconImage = styled.img`
   width: 3rem;
   height: 3rem;
-  @media (max-width: 650px) {
+  cursor: pointer;
+  &:hover {
+    -webkit-filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
+      grayscale(1);
+    filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
+      grayscale(1);
+  }
+  /* @media (max-width: 650px) {
     height: 2rem;
     width: 2rem;
-  }
+  } */
 `;
 
 export const FlixIconContainer = styled.div`
@@ -28,7 +35,7 @@ export const FlixIconContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 20rem;
+  height: 30%;
 `;
 
 export const HeaderButtonsContainer = styled.div`
@@ -43,21 +50,22 @@ export const AvatarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 25%;
+  justify-content: flex-end;
+  height: 40%;
   width: 100%;
 `;
 
-export const AvatarImg = styled.image`
-  height: 2rem;
-  width: 2rem;
+export const AvatarImg = styled.img`
+  height: 5rem;
+  width: 5rem;
+  margin-bottom: 3rem;
 `
 
 export const FlixIcon = styled.img`
   width: 3rem;
   height: 3rem;
-  @media (max-width: 650px) {
+  /* @media (max-width: 650px) {
     height: 2rem;
     width: 2rem;
-  }
+  } */
 `;
