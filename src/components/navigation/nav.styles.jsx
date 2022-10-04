@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
+export const NavContainer = styled.div`
   display: flex;
   position: fixed;
   top: 2%;
@@ -15,8 +15,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const IconImage = styled.img`
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
   &:hover {
     -webkit-filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
@@ -34,11 +34,11 @@ export const FlixIconContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 30%;
 `;
 
-export const HeaderButtonsContainer = styled.div`
+export const NavButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,6 +64,7 @@ export const AvatarImg = styled.img`
 export const FlixIcon = styled.img`
   width: 3rem;
   height: 3rem;
+  margin-top: 2rem;
   /* @media (max-width: 650px) {
     height: 2rem;
     width: 2rem;

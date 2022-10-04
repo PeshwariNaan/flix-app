@@ -5,32 +5,32 @@ import BookmarkIcon from '../../assets/icon-nav-bookmark.svg'
 import TvIcon from '../../assets/icon-nav-tv-series.svg'
 import Avatar from '../../assets/image-avatar.png'
 import {
-  HeaderContainer,
+  NavContainer,
   IconImage,
   FlixIcon,
   FlixIconContainer,
-  HeaderButtonsContainer,
+  NavButtonsContainer,
   AvatarContainer,
   AvatarImg
-} from './header.styles';
+} from './nav.styles';
 
-const Header = (props) => {
+const Nav = (props) => {
   return (
-    <HeaderContainer>
+    <NavContainer>
       <FlixIconContainer>
         <FlixIcon src={Logo} />
       </FlixIconContainer>
-      <HeaderButtonsContainer>
+      <NavButtonsContainer>
         <IconImage src={NavHome} />
         <IconImage src={MovieIcon} />
         <IconImage src={TvIcon} />
         <IconImage src={BookmarkIcon} />
-      </HeaderButtonsContainer>
+      </NavButtonsContainer>
       <AvatarContainer>
         <AvatarImg src={Avatar} alt='Avatar image' />
       </AvatarContainer>
-    </HeaderContainer>
+    </NavContainer>
   );
 };
 
-export default Header;
+export default Nav;
