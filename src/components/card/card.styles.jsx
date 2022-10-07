@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ShowCard = styled.div`
+export const ShowCard = styled.article`
   overflow: hidden;
   transition: 0.4s ease-out;
   &:hover {
@@ -8,8 +8,7 @@ export const ShowCard = styled.div`
   }
   img {
     aspect-ratio: 3.3 / 2;
-    object-fit: cover;
-    min-width: 100%;
+    object-fit: contain;
     max-width: 100%;    
     border-radius: 1rem;
   }
@@ -23,9 +22,9 @@ export const ShowCard = styled.div`
     color: var(--white);
     font-weight: 300;
   }
+  span {
+    display: inline-block;
+  }
 `;
 
-export const CategoryIcon = styled.img`
-  width: 1.5rem;
-  height: 1.5rem;
-`;
+
