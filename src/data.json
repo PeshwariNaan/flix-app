@@ -4,12 +4,12 @@
     "title": "Beyond Earth",
     "thumbnail": {
       "trending": {
-        "small": "./assets/thumbnails/beyond-earth/trending/small.jpg",
+        "small": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/beyond-earth-trending_rmc2j8.jpg",
         "large": "./assets/thumbnails/beyond-earth/trending/large.jpg"
       },
       "regular": {
         "small": "./assets/thumbnails/beyond-earth/regular/small.jpg",
-        "medium": "./assets/thumbnails/beyond-earth/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949331/flix/beyond-earth_irsvva.jpg",
         "large": "./assets/thumbnails/beyond-earth/regular/large.jpg"
       }
     },
@@ -24,12 +24,12 @@
     "title": "Bottom Gear",
     "thumbnail": {
       "trending": {
-        "small": "./assets/thumbnails/bottom-gear/trending/small.jpg",
+        "small": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/bottom-gear-trending_mavymv.jpg",
         "large": "./assets/thumbnails/bottom-gear/trending/large.jpg"
       },
       "regular": {
         "small": "./assets/thumbnails/bottom-gear/regular/small.jpg",
-        "medium": "./assets/thumbnails/bottom-gear/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/bottom-gear_rbswus.jpg",
         "large": "./assets/thumbnails/bottom-gear/regular/large.jpg"
       }
     },
@@ -44,12 +44,12 @@
     "title": "Undiscovered Cities",
     "thumbnail": {
       "trending": {
-        "small": "./assets/thumbnails/undiscovered-cities/trending/small.jpg",
+        "small": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/undiscovered-cities-trending_yjhbcd.jpg",
         "large": "./assets/thumbnails/undiscovered-cities/trending/large.jpg"
       },
       "regular": {
         "small": "./assets/thumbnails/undiscovered-cities/regular/small.jpg",
-        "medium": "./assets/thumbnails/undiscovered-cities/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/undiscovered-cities_cgngj0.jpg",
         "large": "./assets/thumbnails/undiscovered-cities/regular/large.jpg"
       }
     },
@@ -64,12 +64,12 @@
     "title": "1998",
     "thumbnail": {
       "trending": {
-        "small": "./assets/thumbnails/1998/trending/small.jpg",
+        "small": "https://res.cloudinary.com/soyousay/image/upload/v1664949331/flix/1998-trending_pcmodp.jpg",
         "large": "./assets/thumbnails/1998/trending/large.jpg"
       },
       "regular": {
         "small": "./assets/thumbnails/1998/regular/small.jpg",
-        "medium": "./assets/thumbnails/1998/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949331/flix/1998_ibunsz.jpg",
         "large": "./assets/thumbnails/1998/regular/large.jpg"
       }
     },
@@ -84,12 +84,12 @@
     "title": "Dark Side of the Moon",
     "thumbnail": {
       "trending": {
-        "small": "./assets/thumbnails/dark-side-of-the-moon/trending/small.jpg",
+        "small": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/dark-side-of-the-moon-trending_xzt0od.jpg",
         "large": "./assets/thumbnails/dark-side-of-the-moon/trending/large.jpg"
       },
       "regular": {
         "small": "./assets/thumbnails/dark-side-of-the-moon/regular/small.jpg",
-        "medium": "./assets/thumbnails/dark-side-of-the-moon/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/dark-side-of-the-moon_wvqab7.jpg",
         "large": "./assets/thumbnails/dark-side-of-the-moon/regular/large.jpg"
       }
     },
@@ -105,7 +105,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/the-great-lands/regular/small.jpg",
-        "medium": "./assets/thumbnails/the-great-lands/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/the-great-lands_h5hlpk.jpg",
         "large": "./assets/thumbnails/the-great-lands/regular/large.jpg"
       }
     },
@@ -121,7 +121,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/the-diary/regular/small.jpg",
-        "medium": "./assets/thumbnails/the-diary/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/the-diary_i5rlvd.jpg",
         "large": "./assets/thumbnails/the-diary/regular/large.jpg"
       }
     },
@@ -137,7 +137,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/earths-untouched/regular/small.jpg",
-        "medium": "./assets/thumbnails/earths-untouched/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949333/flix/earths-untouched_s7spv9.jpg",
         "large": "./assets/thumbnails/earths-untouched/regular/large.jpg"
       }
     },
@@ -153,7 +153,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/no-land-beyond/regular/small.jpg",
-        "medium": "./assets/thumbnails/no-land-beyond/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949333/flix/no_land-beyond_k2brac.jpg",
         "large": "./assets/thumbnails/no-land-beyond/regular/large.jpg"
       }
     },
@@ -169,7 +169,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/during-the-hunt/regular/small.jpg",
-        "medium": "./assets/thumbnails/during-the-hunt/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949333/flix/during-the-hunt_jalr4n.jpg",
         "large": "./assets/thumbnails/during-the-hunt/regular/large.jpg"
       }
     },
@@ -185,7 +185,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/autosport-the-series/regular/small.jpg",
-        "medium": "./assets/thumbnails/autosport-the-series/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949331/flix/autosport-the-series_fvousk.jpg",
         "large": "./assets/thumbnails/autosport-the-series/regular/large.jpg"
       }
     },
@@ -201,7 +201,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/same-answer-2/regular/small.jpg",
-        "medium": "./assets/thumbnails/same-answer-2/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/same-answer-2_qhbigl.jpg",
         "large": "./assets/thumbnails/same-answer-2/regular/large.jpg"
       }
     },
@@ -217,7 +217,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/below-echo/regular/small.jpg",
-        "medium": "./assets/thumbnails/below-echo/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949331/flix/below-echo_ob1jp5.jpg",
         "large": "./assets/thumbnails/below-echo/regular/large.jpg"
       }
     },
@@ -233,7 +233,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/the-rockies/regular/small.jpg",
-        "medium": "./assets/thumbnails/the-rockies/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/the-rockies_gggkzq.jpg",
         "large": "./assets/thumbnails/the-rockies/regular/large.jpg"
       }
     },
@@ -249,7 +249,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/relentless/regular/small.jpg",
-        "medium": "./assets/thumbnails/relentless/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/relentless_z6zjls.jpg",
         "large": "./assets/thumbnails/relentless/regular/large.jpg"
       }
     },
@@ -265,7 +265,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/community-of-ours/regular/small.jpg",
-        "medium": "./assets/thumbnails/community-of-ours/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/community-of-ours_nvgg2w.jpg",
         "large": "./assets/thumbnails/community-of-ours/regular/large.jpg"
       }
     },
@@ -281,7 +281,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/van-life/regular/small.jpg",
-        "medium": "./assets/thumbnails/van-life/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949335/flix/van-life_ywrgg0.jpg",
         "large": "./assets/thumbnails/van-life/regular/large.jpg"
       }
     },
@@ -297,7 +297,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/the-heiress/regular/small.jpg",
-        "medium": "./assets/thumbnails/the-heiress/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/the-heiress_wuaqlv.jpg",
         "large": "./assets/thumbnails/the-heiress/regular/large.jpg"
       }
     },
@@ -313,7 +313,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/off-the-track/regular/small.jpg",
-        "medium": "./assets/thumbnails/off-the-track/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949333/flix/off-the-track_ehyu8n.jpg",
         "large": "./assets/thumbnails/off-the-track/regular/large.jpg"
       }
     },
@@ -329,7 +329,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/whispering-hill/regular/small.jpg",
-        "medium": "./assets/thumbnails/whispering-hill/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949335/flix/whispering-hill_ts8ggn.jpg",
         "large": "./assets/thumbnails/whispering-hill/regular/large.jpg"
       }
     },
@@ -344,7 +344,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/112/regular/small.jpg",
-        "medium": "./assets/thumbnails/112/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949335/flix/112_syjugy.jpg",
         "large": "./assets/thumbnails/112/regular/large.jpg"
       }
     },
@@ -360,7 +360,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/lone-heart/regular/small.jpg",
-        "medium": "./assets/thumbnails/lone-heart/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949333/flix/lone-heart_gv5ud7.jpg",
         "large": "./assets/thumbnails/lone-heart/regular/large.jpg"
       }
     },
@@ -376,7 +376,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/production-line/regular/small.jpg",
-        "medium": "./assets/thumbnails/production-line/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949333/flix/production-line_wa2owa.jpg",
         "large": "./assets/thumbnails/production-line/regular/large.jpg"
       }
     },
@@ -392,7 +392,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/dogs/regular/small.jpg",
-        "medium": "./assets/thumbnails/dogs/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/dogs_kmoixy.jpg",
         "large": "./assets/thumbnails/dogs/regular/large.jpg"
       }
     },
@@ -408,7 +408,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/asia-in-24-days/regular/small.jpg",
-        "medium": "./assets/thumbnails/asia-in-24-days/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949331/flix/asia-in-24-days_i9kbbb.jpg",
         "large": "./assets/thumbnails/asia-in-24-days/regular/large.jpg"
       }
     },
@@ -424,7 +424,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/the-tasty-tour/regular/small.jpg",
-        "medium": "./assets/thumbnails/the-tasty-tour/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949334/flix/the-tasty-tour_brylh1.jpg",
         "large": "./assets/thumbnails/the-tasty-tour/regular/large.jpg"
       }
     },
@@ -440,7 +440,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/darker/regular/small.jpg",
-        "medium": "./assets/thumbnails/darker/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949332/flix/darker_hp9n8e.jpg",
         "large": "./assets/thumbnails/darker/regular/large.jpg"
       }
     },
@@ -456,7 +456,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/unresolved-cases/regular/small.jpg",
-        "medium": "./assets/thumbnails/unresolved-cases/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949335/flix/unresolved-cases_bu7d8d.jpg",
         "large": "./assets/thumbnails/unresolved-cases/regular/large.jpg"
       }
     },
@@ -472,7 +472,7 @@
     "thumbnail": {
       "regular": {
         "small": "./assets/thumbnails/mission-saturn/regular/small.jpg",
-        "medium": "./assets/thumbnails/mission-saturn/regular/medium.jpg",
+        "medium": "https://res.cloudinary.com/soyousay/image/upload/v1664949333/flix/mission-saturn_zdh90r.jpg",
         "large": "./assets/thumbnails/mission-saturn/regular/large.jpg"
       }
     },
