@@ -9,7 +9,6 @@ export const NavContainer = styled.div`
   width: 10rem;
   height: 96vh;
   background-color: var(--bg-ele);
-  margin: auto 0 auto 0;
   border-radius: 1.5rem;
   align-items: center;
 `;
@@ -35,7 +34,7 @@ export const FlixIconContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 30%;
+  height: 20%;
 `;
 
 export const NavButtonsContainer = styled.div`
@@ -43,7 +42,7 @@ export const NavButtonsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 30%;
+  height: 25%;
 `;
 
 export const AvatarContainer = styled.div`
@@ -51,7 +50,7 @@ export const AvatarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 40%;
+  height: 55%;
   width: 100%;
 `;
 

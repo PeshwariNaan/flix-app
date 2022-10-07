@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 
 export const ShowsContainer = styled.div`
-  width: calc(100% - 15rem);
+  width: calc(100% - 20rem);
   float: right;
   display: grid;
   margin-right: 2rem;
-  grid-template-columns: repeat(4, minmax(18rem, 1fr)) !important;
-  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)) !important;
   grid-column-gap: 2rem;
   justify-items: center;
   grid-row-gap: 8rem;
 `;
+
+export const TrendingContainer = styled.div`
+  display: flex;
+  padding: 0 .55rem;
+`
 
 

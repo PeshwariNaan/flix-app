@@ -11,10 +11,12 @@ function App() {
   return (
     <Fragment>
       <GlobalStyles />
-      <Nav />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
+      <main>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </main>
     </Fragment>
   );
 }

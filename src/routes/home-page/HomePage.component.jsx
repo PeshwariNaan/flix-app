@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Card from '../../components/card/Card.component';
 import shows from '../../data.json';
-
 import MovImage from '../../assets/mission-saturn.jpg';
+
 import { ShowsContainer } from './homePage.styles';
+
+
 
 const HomePage = () => {
   return (
+    <Fragment>
     <ShowsContainer>
       {shows.map((show) => {
         return (
@@ -16,13 +19,13 @@ const HomePage = () => {
             rating={show.rating}
             category={show.category}
             title={show.title}
-            image={MovImage}
+            image={show.thumbnail.regular.medium}
           />
         );
       })}
     </ShowsContainer>
+    </Fragment>
   );
 };
 export default HomePage;
 
-//<TestDiv><h2 style={{color: 'black'}}>{show.title}</h2></TestDiv>
