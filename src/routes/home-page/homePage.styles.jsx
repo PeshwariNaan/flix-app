@@ -13,7 +13,9 @@ export const ShowsContainer = styled.div`
 
 export const TrendingContainer = styled.div`
   display: flex;
-  padding: 0 .55rem;
+  width: calc(100% - 20rem);
+  float: right;
+  margin-right: 2rem;
 `
 
 
