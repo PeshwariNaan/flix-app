@@ -1,7 +1,6 @@
 import React from 'react';
-import IconArrowDown from './../Icons/IconArrowDown';
 import { DetailsButton } from './ShowDetailsButton.styles';
-//import './ShowDetailsButton.scss'
+
 
 const ShowDetailsButton = ({ onClick }) => (
   <DetailsButton onClick={onClick}>

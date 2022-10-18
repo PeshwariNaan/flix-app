@@ -6,7 +6,7 @@ export const StyledSlideButton = styled.button`
   bottom: 0;
   right: ${props => props.showRight ? 0: null};
   left: ${props => props.showLeft ? 0 : null};
-  width: 55px;
+  width: 55px; // Double this for value of padding in useSliding hook
   background: rgba(0, 0, 0, 0.5);
   border: 0;
   outline: 0;

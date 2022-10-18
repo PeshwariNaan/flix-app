@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { SliderContext } from '../../store/SliderContext.context';
+import { SliderContext } from '../../../store/sliderContext';
+import ShowDetailsButton from '../Show-Details-Button/ShowDetailsButton'
 import { ItemContainer } from './item.styles';
-import ShowDetailsButton from './ShowDetailsButton';
-import Mark from './Mark';
+
 
 const Item = ({ show }) => {
   const { onShowDetails, currentSlide, elementRef, isOpen } =
@@ -21,7 +21,7 @@ const Item = ({ show }) => {
         alt={`Show title: ${show.title}`}
       />
       <ShowDetailsButton onClick={() => onShowDetails(show)} />
-      {isActive && <Mark />}
+      {/* {isActive && <Mark />} */}
     </ItemContainer>
   );
 };

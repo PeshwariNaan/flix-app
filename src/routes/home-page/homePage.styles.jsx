@@ -9,6 +9,10 @@ export const ShowsContainer = styled.div`
   grid-column-gap: 2rem;
   justify-items: center;
   grid-row-gap: 8rem;
+
+  h1 {
+    
+  }
 `;
 
 export const TrendingContainer = styled.div`

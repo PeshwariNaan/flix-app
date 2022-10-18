@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ItemContainer } from './item.styles';
+import { ItemContainer } from '../Item/item.styles';
 
 export const DetailsButton = styled.button`
   position: absolute;

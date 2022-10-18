@@ -1,7 +1,6 @@
 import React from 'react';
-//import IconArrowDown from './../Icons/IconArrowDown';
 import { StyledSlideButton } from './SlideButton.styles';
-//import './SlideButton.scss';
+
 
 const SlideButton = ({ onClick, type, showLeft, showRight }) => (
   <StyledSlideButton

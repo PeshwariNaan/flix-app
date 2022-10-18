@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-const PADDINGS = 110;
+const PADDINGS = 150;
 
 const useSliding = (elementWidth, countElements) => {
   const containerRef = useRef(null);
@@ -10,10 +10,13 @@ const useSliding = (elementWidth, countElements) => {
   const [viewed, setViewed] = useState(0);
 
   useEffect(() => {
-    const containerWidth = containerRef.current.clientWidth - PADDINGS;
+    const containerWidth = containerRef.current.clientWidth - PADDINGS; // slider container width
+    console.log(containerRef.current.clientWidth)
 
     setContainerWidth(containerWidth);
+    console.log('container width', containerWidth)
     setTotalInViewport(Math.floor(containerWidth / elementWidth));
+    console.log(totalInViewport)
   }, [containerRef.current]);
 
   const handlePrev = () => {
