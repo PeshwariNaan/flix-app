@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import Card from '../../components/card/Card.component';
 import Item from '../../components/flix-slider/Item/Item';
 import Slider from '../../components/flix-slider/Slider/Slider';
@@ -6,27 +6,23 @@ import shows from '../../data.json';
 import { ShowsContainer, TrendingContainer } from './homePage.styles';
 
 const HomePage = () => {
-  const [trendingShows, setTrendingShows] = useState([]);
-
-  const getTrending = () => {
-    const trendingFlix = shows.filter((show) => {
-      return show.isTrending === true;
-    });
-    setTrendingShows(trendingFlix);
-    console.log(trendingShows);
-  };
-
-  useEffect(() => {
-    getTrending();
-  }, []);
+  const [trendingShows, setTrendingShows] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <Fragment>
       <TrendingContainer>
         <Slider>
-          {shows.map((show) => (
-            <Item show={show} key={show.id} />
-          ))}
+          {shows
+            .filter((show) => {
+              if (show.isTrending === true) {
+                return show;
+              }
+              return false;
+            })
+            .map((show) => (
+              <Item show={show} key={show.id} />
+            ))}
         </Slider>
       </TrendingContainer>
       <ShowsContainer>

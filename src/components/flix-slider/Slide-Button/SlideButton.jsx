@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledSlideButton } from './SlideButton.styles';
 
 
-const SlideButton = ({ onClick, type, showLeft, showRight }) => (
+const SlideButton = ({ onClick, showLeft, showRight }) => (
   <StyledSlideButton
     showLeft={showLeft}
     showRight={showRight}

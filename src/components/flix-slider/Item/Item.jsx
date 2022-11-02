@@ -8,6 +8,7 @@ const Item = ({ show }) => {
   const { onShowDetails, currentSlide, elementRef, isOpen } =
     useContext(SliderContext);
   const isActive = currentSlide && currentSlide.id === show.id;
+  //console.log('element ref', elementRef)
 
   return (
     <ItemContainer

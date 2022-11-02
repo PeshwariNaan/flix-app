@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ItemContainer = styled.div`
-  flex: 0 0 30%;
+  flex: 0 0 25%;
   transition: transform 300ms ease 100ms;
   margin: 0 2px;
   position: relative;
@@ -11,6 +11,7 @@ export const ItemContainer = styled.div`
   img {
     height: 100%;
     width: 100%;
+    aspect-ratio: 7 / 3;
     vertical-align: top;
     border-radius: 1rem;
   }
