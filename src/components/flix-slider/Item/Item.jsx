@@ -4,11 +4,11 @@ import ShowDetailsButton from '../Show-Details-Button/ShowDetailsButton'
 import { ItemContainer } from './item.styles';
 
 
+
 const Item = ({ show }) => {
   const { onShowDetails, currentSlide, elementRef, isOpen } =
     useContext(SliderContext);
   const isActive = currentSlide && currentSlide.id === show.id;
-  //console.log('element ref', elementRef)
 
   return (
     <ItemContainer
@@ -22,7 +22,6 @@ const Item = ({ show }) => {
         alt={`Show title: ${show.title}`}
       />
       <ShowDetailsButton onClick={() => onShowDetails(show)} />
-      {/* {isActive && <Mark />} */}
     </ItemContainer>
   );
 };

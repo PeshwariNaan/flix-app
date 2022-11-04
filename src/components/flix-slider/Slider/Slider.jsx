@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import Content from '../Content/content';
+import DetailsModal from '../../UI/DetailsModal';
 import { SliderContext } from '../../../store/sliderContext';
 import SlideButton from '../Slide-Button/SlideButton'
 import SliderWrapper from '../SliderWrapper'
@@ -24,9 +25,11 @@ const Slider = ({ children }) => {
         {hasPrev && <SlideButton showLeft={hasPrev} onClick={handlePrev} type="prev" />}
         {hasNext && <SlideButton showRight={hasNext} onClick={handleNext} type="next" />}
       </SliderWrapper>
-      {currentSlide && <Content show={currentSlide} onClose={onHideDetails} />}
+      {isOpen && <DetailsModal onClose={onHideDetails} />}
     </Fragment>
   );
 };
 
 export default Slider;
+
+//{currentSlide && <Content show={currentSlide} onClose={onHideDetails} />}

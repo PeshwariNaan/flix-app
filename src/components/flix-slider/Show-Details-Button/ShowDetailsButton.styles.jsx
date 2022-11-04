@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ItemContainer } from '../Item/item.styles';
+import {ShowCard} from '../../card/card.styles'
 
 export const DetailsButton = styled.button`
   position: absolute;
@@ -25,7 +26,10 @@ export const DetailsButton = styled.button`
     cursor: pointer;
     transition: all 1s linear;
   }
-  ${ItemContainer}:hover & {
+  ${ItemContainer}:hover & { //ItemContainer is for trending shows item
+    opacity: 1;
+  }
+  ${ShowCard}:hover & { //ShowCard is general card for shows
     opacity: 1;
   }
 `;

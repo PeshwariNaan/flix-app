@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-const PADDINGS = 150;
+const PADDINGS = 110;
 
 const useSliding = (elementWidth, countElements) => {
   const containerRef = useRef(null);
@@ -11,7 +11,6 @@ const useSliding = (elementWidth, countElements) => {
 
   useEffect(() => {
     const containerWidth = containerRef.current.clientWidth - PADDINGS; // slider container width
-    //console.log('containerRef width', containerRef.current.clientWidth);
 
     setContainerWidth(containerWidth);
     console.log('container width', containerWidth);
