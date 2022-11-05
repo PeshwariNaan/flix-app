@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
+//import React, { Fragment } from 'react';
 import { InfoDiv } from './ShowHeading.styles';
 
-const ShowHeading = ({ show }) => {
+const ShowHeading = ({ show, trending }) => {
+    //console.log(+trending)
+
   return (
     <InfoDiv>
       <p>
@@ -32,7 +34,7 @@ const ShowHeading = ({ show }) => {
         {show.category}
         <span>&nbsp;</span>•<span>&nbsp;</span> {show.rating}
       </p>
-      <h2 enlarge={show.isTrending}>{show.title}</h2>
+      <h2 trending={+trending}>{show.title}</h2>
     </InfoDiv>
   );
 };

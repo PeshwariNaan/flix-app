@@ -3,7 +3,11 @@ import Card from '../../components/card/Card.component';
 import Item from '../../components/flix-slider/Item/Item';
 import Slider from '../../components/flix-slider/Slider/Slider';
 import shows from '../../data.json';
-import { HeadingsContainer, ShowsContainer, TrendingContainer } from './homePage.styles';
+import {
+  HeadingsContainer,
+  ShowsContainer,
+  TrendingContainer,
+} from './homePage.styles';
 
 const HomePage = () => {
   const [trendingShows, setTrendingShows] = useState();
@@ -24,7 +28,7 @@ const HomePage = () => {
               return false;
             })
             .map((show) => (
-              <Item show={show} key={show.id} />
+              <Item show={show} key={show.id} trending={show.isTrending} />
             ))}
         </Slider>
       </TrendingContainer>
@@ -32,19 +36,18 @@ const HomePage = () => {
         <h1>Recommended for you</h1>
       </HeadingsContainer>
       <ShowsContainer>
-        {shows.filter((show) => {
-          if (show.isTrending !== true) {
-            return show;
-          }
-          return false;
-        }).map((show) => {
-          return (
-            <Card
-              key={show.id}
-              show={show}
-            />
-          );
-        })}
+        {shows
+          .filter((show) => {
+            if (show.isTrending !== true) {
+              return show;
+            }
+            return false;
+          })
+          .map((show) => {
+            return (
+              <Card key={show.id} show={show} trending={show.isTrending} />
+            );
+          })}
       </ShowsContainer>
     </Fragment>
   );

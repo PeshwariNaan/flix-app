@@ -1,8 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InfoDiv = styled.div`
+  display: flex;
+  flex-direction: column;
   h2 {
-    font-size: ${props => props.enlarge? 'var(--Mhead)': 'var(--body-med)'} ;
+    font-size: ${props => props.trending? 'var(--Lhead)': 'var(--body-med)'};
     color: var(--white);
     font-weight: 500;
   }
@@ -14,5 +16,4 @@ export const InfoDiv = styled.div`
   span {
     display: inline-block;
   }
-`
-
+`;

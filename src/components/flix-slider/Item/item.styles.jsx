@@ -5,7 +5,7 @@ export const ItemContainer = styled.div`
   transition: transform 300ms ease 100ms;
   margin: 0 2px;
   position: relative;
-  z-index: 100;
+  //z-index: 100;
   overflow: hidden;
 
   img {
@@ -25,3 +25,10 @@ export const ItemContainer = styled.div`
     transform: ${(props) => ( (props.isOpen) ? null : 'translateX(10%);')};
   } */
 `;
+
+export const ShowInfoDiv = styled.div`
+  position: absolute;
+  width: 10rem;
+  bottom: 5rem;
+  left: 2rem;
+`
