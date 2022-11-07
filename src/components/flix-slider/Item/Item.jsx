@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { SliderContext } from '../../../store/sliderContext';
 import ShowDetailsButton from '../Show-Details-Button/ShowDetailsButton'
-import DetailsModal from '../../UI/DetailsModal';
 import ShowHeading from '../../Show-Heading/ShowHeading';
-import { ItemContainer, ShowInfoDiv } from './item.styles';
+import PlayButton from '../../Play-Button/PlayButton';
+import { ItemContainer, ShowInfoDiv, ItemPlayButtonContainer } from './item.styles';
 
 
 
@@ -22,11 +22,13 @@ const Item = ({ show, trending }) => {
         src={show.thumbnail.regular.medium}
         alt={`Show title: ${show.title}`}
       />
+      <ItemPlayButtonContainer>
+        <PlayButton />
+      </ItemPlayButtonContainer>
       <ShowInfoDiv>
         <ShowHeading show={show} trending={trending} />
       </ShowInfoDiv>
       <ShowDetailsButton onClick={() => onShowDetails(show)} />
-    {/* {isOpen && <DetailsModal  />} */}
     </ItemContainer>
   );
 };

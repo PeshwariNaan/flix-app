@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 export const ItemContainer = styled.div`
   flex: 0 0 35%;
-  transition: transform 300ms ease 100ms;
-  margin: 0 2px;
+  transition: transform 300ms ease 100ms, margin 600ms;
+  padding: 0 2px;
   position: relative;
-  //z-index: 100;
   overflow: hidden;
+  min-height: 15rem;
+  min-width: 30rem;
 
   img {
     height: 100%;
@@ -20,15 +21,23 @@ export const ItemContainer = styled.div`
     transform: ${(props) => (props.isOpen ? null : 'scale(1.1)')} !important;
     z-index: 100;
   }
-
-  /* &:hover ~ &{
-    transform: ${(props) => ( (props.isOpen) ? null : 'translateX(10%);')};
-  } */
 `;
 
 export const ShowInfoDiv = styled.div`
   position: absolute;
   width: 10rem;
-  bottom: 5rem;
+  bottom: 3rem;
   left: 2rem;
-`
+`;
+export const ItemPlayButtonContainer = styled.div`
+  position: absolute;
+  left: 35%;
+  top: 40%;
+  z-index: 900;
+  opacity: 0;
+
+  ${ItemContainer}:hover & {
+    opacity: 1;
+    transition: all 1000ms;
+  }
+`;
