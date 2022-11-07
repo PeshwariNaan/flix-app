@@ -119,7 +119,7 @@ export const CloseButton = styled.button`
   height: 5rem;
   border-radius: 5rem;
   color: #fff;
-  background: black;
+  background: rgba(0, 0, 0, .5);
   top: 3rem;
   right: 8rem;
   opacity: 0;

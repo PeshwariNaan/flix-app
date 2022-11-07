@@ -55,8 +55,8 @@ const ModalOverlay = (props) => {
     'Dont bother',
   ];
 
+  // function to shuffle an array using Durstenfeld shuffle algorithm and return n elements
   function returnShuffledElements(array, n) {
-    // shuffle array using Durstenfeld shuffle algorithm and return n elements
     const temp = [];
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
