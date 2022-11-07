@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ShowCard = styled.article`
+  position: relative;
   overflow: hidden;
   transition: 0.4s ease-out;
   &:hover {
@@ -9,7 +10,7 @@ export const ShowCard = styled.article`
   img {
     aspect-ratio: 3.3 / 2;
     object-fit: contain;
-    max-width: 100%;    
+    max-width: 100%;
     border-radius: 1rem;
   }
   h2 {
@@ -23,8 +24,19 @@ export const ShowCard = styled.article`
     font-weight: 300;
   }
   span {
-    display: inline-block;
+    //display: inline-block;
   }
 `;
 
+export const CardPlayButtonContainer = styled.div`
+  position: absolute;
+  left: 35%;
+  top: 40%;
+  z-index: 900;
+  opacity: 0;
 
+  ${ShowCard}:hover & {
+    opacity: 1;
+    transition: all 1000ms;
+  }
+`;
