@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const ItemContainer = styled.div`
   flex: 0 0 35%;
-  transition: transform 300ms ease 100ms, margin 600ms;
-  padding: 0 2px;
   position: relative;
+  transition: 0.4s ease 100ms;
+  margin: 0 2px;
   overflow: hidden;
   min-height: 15rem;
   min-width: 30rem;
@@ -31,6 +31,7 @@ export const ShowInfoDiv = styled.div`
 `;
 export const ItemPlayButtonContainer = styled.div`
   position: absolute;
+  transition: 0.4s ease 100ms;
   left: 35%;
   top: 40%;
   z-index: 900;
@@ -38,6 +39,5 @@ export const ItemPlayButtonContainer = styled.div`
 
   ${ItemContainer}:hover & {
     opacity: 1;
-    transition: all 1000ms;
   }
 `;
