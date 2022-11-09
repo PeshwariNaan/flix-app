@@ -5,28 +5,28 @@ export const SliderContext = createContext();
 
 export const SliderProvider = ({ children }) => {
   const [currentSlide, setCurrentSlide] = useState();
-  const [isOpen, setIsOpen] = useState(false);
+  //const [isOpen, setIsOpen] = useState(false);
   const { width, elementRef } = useSizeElement();  //This is giving the width of the Item component
   console.log('context - width', width, 'elementRef', elementRef)
 
 
-  const showDetailsHandler = (movie) => {
-    setCurrentSlide(movie);
-    setIsOpen(true);
-  };
+  // const showDetailsHandler = (movie) => {
+  //   setCurrentSlide(movie);
+  //   setIsOpen(true);
+  // };
 
-  const closeDetailsHandler = () => {
-    setCurrentSlide(null);
-    setIsOpen(false);
-  };
+  // const closeDetailsHandler = () => {
+  //   setCurrentSlide(null);
+  //   setIsOpen(false);
+  // };
 
   const value = {
-    onShowDetails: showDetailsHandler,
-    onHideDetails: closeDetailsHandler,
+    //onShowDetails: showDetailsHandler,
+    //onHideDetails: closeDetailsHandler,
     elementRef,
-    currentSlide,
+    //currentSlide,
     width,
-    isOpen,
+    //isOpen,
   };
 
   return (
