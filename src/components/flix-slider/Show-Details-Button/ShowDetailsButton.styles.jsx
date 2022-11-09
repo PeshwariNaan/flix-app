@@ -8,7 +8,7 @@ export const DetailsButton = styled.button`
   left: 0;
   right: 0;
   opacity: 0;
-  transition: opacity 300ms ease 100ms;
+  transition: opacity 500ms ease 100ms;
   background: transparent;
   border: 0;
   outline: none;
@@ -24,7 +24,7 @@ export const DetailsButton = styled.button`
     font-size: 30px;
     color: #fff;
     cursor: pointer;
-    transition: all 1s linear;
+    
   }
   ${ItemContainer}:hover & { //ItemContainer is for trending shows item
     opacity: 1;
