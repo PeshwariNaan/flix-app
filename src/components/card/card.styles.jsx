@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ShowCard = styled.article`
   position: relative;
   overflow: hidden;
-  transition: 0.4s ease-out;
+  transition: 0.4s ease 100ms;
   &:hover {
     transform: scale(1.1);
   }
@@ -23,13 +23,11 @@ export const ShowCard = styled.article`
     color: var(--white);
     font-weight: 300;
   }
-  span {
-    //display: inline-block;
-  }
 `;
 
 export const CardPlayButtonContainer = styled.div`
   position: absolute;
+  transition: 0.4s ease 100ms;
   left: 35%;
   top: 40%;
   z-index: 900;
@@ -37,6 +35,5 @@ export const CardPlayButtonContainer = styled.div`
 
   ${ShowCard}:hover & {
     opacity: 1;
-    transition: all 1000ms;
   }
 `;
