@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import ReactDom from 'react-dom';
 import { SliderContext } from '../../store/sliderContext';
+import { DisplayContext } from '../../store/displayContext';
 import DetailsHeading from '../Details-Heading/DetailsHeading';
 import PlayButton from '../Play-Button/PlayButton';
 import {
@@ -22,7 +23,7 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  const { currentSlide } = useContext(SliderContext);
+  const { currentSlide } = useContext(DisplayContext);
   const actorsArr = [
     'Guywitha Beard',
     'Her Again',
@@ -35,12 +36,13 @@ const ModalOverlay = (props) => {
     'Anomander Rake',
     'The Eel of Darujhistan',
     'Surly',
-    'Tightwad Ina Suit',
+    'Tiffany Aching',
     'Quick Ben',
+    'Rincewind',
     'Ganoes Paran',
     'Smiles',
     'One Eye Cat',
-    'The Seguleh Brothers',
+    'The Seguleh',
   ];
   const genreArr = [
     'So boring',

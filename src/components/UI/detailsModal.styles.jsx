@@ -36,7 +36,7 @@ export const OverLayDiv = styled.div`
   border-radius: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
-  animation: ${slideDown} 800ms ease-out forwards;
+  animation: ${slideDown} 800ms ease-in-out;
 
   p {
     font-size: var(--body-med);
@@ -109,14 +109,14 @@ export const PlayButtonContainer = styled.div`
 
   ${ShowImageContainer}:hover & {
     opacity: 1;
-    transition: all 1000ms;
+    transition: opacity 500ms ease 100ms;
   }
 `;
 
 export const CloseButton = styled.button`
   position: absolute;
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 5rem;
   color: #fff;
   background: rgba(0, 0, 0, .5);
@@ -130,7 +130,7 @@ export const CloseButton = styled.button`
   }
 
   ion-icon {
-    font-size: 50px;
+    font-size: 3rem;
     color: var(--white);
     cursor: pointer;
     transition: all 1s linear;
