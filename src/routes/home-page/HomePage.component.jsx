@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
+import { ShowContext } from '../../store/showContext';
 import Card from '../../components/card/Card.component';
 import Item from '../../components/flix-slider/Item/Item';
 import Slider from '../../components/flix-slider/Slider/Slider';
@@ -17,13 +18,14 @@ const HomePage = () => {
   const [searchedShows, setSearchedShows] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [searchField, setSearchField] = useState([]);
+  const {allShows} = useContext(ShowContext)
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
   const searchMoviesAndShows = (e) => {
     const searchFieldItems = e.target.value.toLocaleLowerCase();
     setSearchField(searchFieldItems);
-    const searchedData = shows.filter((show) => {
+    const searchedData = allShows.filter((show) => {
       return show.title.toLocaleLowerCase().includes(searchField);
     });
     setSearchedShows(searchedData);
@@ -44,7 +46,7 @@ const HomePage = () => {
             </HeadingsContainer>
             <TrendingContainer>
               <Slider>
-                {shows
+                {allShows
                   .filter((show) => {
                     if (show.isTrending === true) {
                       return show;
@@ -64,7 +66,7 @@ const HomePage = () => {
               <h1>Recommended for you</h1>
             </HeadingsContainer>
             <ShowsContainer>
-              {shows
+              {allShows
                 .filter((show) => {
                   if (show.isTrending !== true) {
                     return show;
