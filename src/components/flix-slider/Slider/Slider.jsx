@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import DetailsModal from '../../UI/DetailsModal';
-import { SliderContext } from '../../../store/sliderContext';
+//import { SliderContext } from '../../../store/sliderContext';
 import { DisplayContext } from '../../../store/displayContext';
 import SlideButton from '../Slide-Button/SlideButton';
 import SliderWrapper from '../SliderWrapper';
@@ -8,7 +7,7 @@ import useSliding from '../../../hooks/useSliding.hook';
 import { OuterContainer } from './Slider.styles';
 
 const Slider = ({ children }) => {
-  const { width } = useContext(SliderContext);
+  //const { width } = useContext(SliderContext);
   const { isOpen } = useContext(DisplayContext);
 
   const { handlePrev, handleNext, slideProps, containerRef, hasNext, hasPrev } =

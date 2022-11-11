@@ -1,12 +1,12 @@
-import React, { createContext, useState } from 'react';
-import useSizeElement from '../hooks/useSizeElement.hook';
+// import React, { createContext, useState } from 'react';
+// import useSizeElement from '../hooks/useSizeElement.hook';
 
-export const SliderContext = createContext();
+//export const SliderContext = createContext();
 
-export const SliderProvider = ({ children }) => {
+//export const SliderProvider = ({ children }) => {
   //const [isOpen, setIsOpen] = useState(false);
-  const { width, elementRef } = useSizeElement();  //This is giving the width of the Item component
-  console.log('context - width', width, 'elementRef', elementRef)
+  //const { width, elementRef } = useSizeElement();  //This is giving the width of the Item component
+  //console.log('context - width', width, 'elementRef', elementRef)
   
 
   // const showDetailsHandler = (movie) => {
@@ -19,16 +19,16 @@ export const SliderProvider = ({ children }) => {
   //   setIsOpen(false);
   // };
 
-  const value = {
+ // const value = {
     //onShowDetails: showDetailsHandler,
     //onHideDetails: closeDetailsHandler,
-    elementRef,
+    //elementRef,
     //currentSlide,
-    width,
+    //width,
     //isOpen,
-  };
+ // };
 
-  return (
-    <SliderContext.Provider value={value}>{children}</SliderContext.Provider>
-  );
-};
+//   return (
+//     <SliderContext.Provider value={value}>{children}</SliderContext.Provider>
+//   );
+// };

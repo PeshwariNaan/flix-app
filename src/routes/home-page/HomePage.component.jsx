@@ -17,7 +17,7 @@ const HomePage = () => {
   const [searchedShows, setSearchedShows] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [searchField, setSearchField] = useState([]);
-  const { allShows } = useContext(ShowContext)
+  const { allShows, shows } = useContext(ShowContext)
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
@@ -44,7 +44,7 @@ const HomePage = () => {
               <h1>Trending</h1>
             </HeadingsContainer>
             <TrendingContainer>
-              <Slider>
+              {/* <Slider>
                 {allShows
                   .filter((show) => {
                     if (show.isTrending === true) {
@@ -59,7 +59,7 @@ const HomePage = () => {
                       trending={show.isTrending}
                     />
                   ))}
-              </Slider>
+              </Slider> */}
             </TrendingContainer>
             <HeadingsContainer>
               <h1>Recommended for you</h1>

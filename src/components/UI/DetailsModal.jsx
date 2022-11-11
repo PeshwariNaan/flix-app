@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import ReactDom from 'react-dom';
-import { SliderContext } from '../../store/sliderContext';
 import { DisplayContext } from '../../store/displayContext';
 import DetailsHeading from '../Details-Heading/DetailsHeading';
 import PlayButton from '../Play-Button/PlayButton';
