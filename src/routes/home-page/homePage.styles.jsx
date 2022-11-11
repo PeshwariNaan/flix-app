@@ -19,8 +19,6 @@ export const TrendingContainer = styled.div`
 `;
 export const HeadingsContainer = styled.div`
   display: flex;
-  //width: calc(100% - 20rem);
-  //float: right;
   h1 {
     font-size: var(--Lhead);
     color: var(--white);
