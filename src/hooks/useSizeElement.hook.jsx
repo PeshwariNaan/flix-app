@@ -4,8 +4,13 @@ const useSizeElement = () => {
   const elementRef = useRef();
   const [width, setWidth] = useState(0);
 
+
   useEffect(() => {
-    setWidth(elementRef.current.clientWidth);
+    if(elementRef.current === undefined) {
+      elementRef.current = 0
+      setWidth(0)
+    }else{
+    setWidth(elementRef.current.clientWidth)}
   }, [elementRef.current]);
 
   return { width, elementRef };

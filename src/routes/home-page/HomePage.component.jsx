@@ -1,11 +1,10 @@
-import React, { Fragment, useState, useContext, useEffect } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import { ShowContext } from '../../store/showContext';
 import Card from '../../components/card/Card.component';
 import Item from '../../components/flix-slider/Item/Item';
 import Slider from '../../components/flix-slider/Slider/Slider';
 import DetailsModal from '../../components/UI/DetailsModal';
 import { DisplayContext } from '../../store/displayContext';
-import shows from '../../data.json';
 import SearchBox from '../../components/Search-Box/SearchBox';
 import {
   HeadingsContainer,
@@ -18,7 +17,7 @@ const HomePage = () => {
   const [searchedShows, setSearchedShows] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [searchField, setSearchField] = useState([]);
-  const {allShows} = useContext(ShowContext)
+  const { allShows } = useContext(ShowContext)
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 

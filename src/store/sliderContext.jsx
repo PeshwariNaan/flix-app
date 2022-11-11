@@ -4,11 +4,10 @@ import useSizeElement from '../hooks/useSizeElement.hook';
 export const SliderContext = createContext();
 
 export const SliderProvider = ({ children }) => {
-  const [currentSlide, setCurrentSlide] = useState();
   //const [isOpen, setIsOpen] = useState(false);
   const { width, elementRef } = useSizeElement();  //This is giving the width of the Item component
   console.log('context - width', width, 'elementRef', elementRef)
-
+  
 
   // const showDetailsHandler = (movie) => {
   //   setCurrentSlide(movie);
