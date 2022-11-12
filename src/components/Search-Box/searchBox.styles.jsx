@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const InputContainer = styled.div`
   display: flex;
-  width: calc(100% - 20rem);
+  width: 100%;
   height: 6rem;
-  float: right;
   background-color: none;
   margin: 3rem 0;
  
@@ -14,7 +13,6 @@ export const InputContainer = styled.div`
     align-self: center;
   }
 `;
-
 
 export const StyledInput = styled.input`
   -webkit-appearance: none;

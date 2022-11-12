@@ -17,7 +17,7 @@ const HomePage = () => {
   const [searchedShows, setSearchedShows] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [searchField, setSearchField] = useState([]);
-  const { allShows, shows } = useContext(ShowContext)
+  const { allShows, shows } = useContext(ShowContext);
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
@@ -32,12 +32,12 @@ const HomePage = () => {
 
   return (
     <Fragment>
-      <SearchBox
-        placeholder={'Search for movies or TV series'}
-        value={searchField}
-        onChangeHandler={searchMoviesAndShows}
-      />
       <MainShowContainer>
+        <SearchBox
+          placeholder={'Search for movies or TV series'}
+          value={searchField}
+          onChangeHandler={searchMoviesAndShows}
+        />
         {searchField.length === 0 ? (
           <Fragment>
             <HeadingsContainer>
