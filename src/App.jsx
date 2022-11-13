@@ -19,6 +19,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="movies" element={<MoviesPage />} />
           <Route path='tvseries' element={<SeriesPage />} />
+          <Route path='signin-signup' element={<SignIn />} />
         </Routes>
       </main>
     </Fragment>

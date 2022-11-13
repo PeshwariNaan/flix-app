@@ -1,5 +1,15 @@
 import { initializeApp } from 'firebase/app';
 import {
+  getAuth,
+  signInWithRedirect,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from 'firebase/auth';
+import {
   getFirestore,
   doc,
   getDoc,
@@ -23,7 +33,15 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
+  prompt: "select_account",
+});
+
 export const db = getFirestore();
+
+export const auth = getAuth();
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 
 //Function to add moviesAndShows data to firebase - firestore
 export const addCollectionAndDocuments = async (
@@ -51,7 +69,7 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapShot = await getDocs(q);
-  return querySnapShot.docs.map(docSnapshot => docSnapshot.data()) //This will return the data as an array
+  return querySnapShot.docs.map((docSnapshot) => docSnapshot.data()); //This will return the data as an array
 
   //This code will return the data as a map(object), not an array
   // const categoryMap = querySnapShot.docs.reduce((acc, docSnapShot) => {
@@ -61,4 +79,45 @@ export const getCategoriesAndDocuments = async () => {
   // }, {});
 
   //return categoryMap;
+};
+
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInfo = {}
+) => {
+  if (!userAuth) return;
+
+  const userDocRef = doc(db, 'users', userAuth.uid); //database instance, collection, identifier
+  const userSnapshot = await getDoc(userDocRef);
+  if (!userSnapshot.exists()) {
+    //If user snapshot doesn't exist - create userDocRef
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+        ...additionalInfo,
+      });
+    } catch (error) {
+      console.log('Error creating user', error.message);
+    }
+  }
+
+  //if user data exists
+  return userDocRef;
+};
+
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  return await signInWithEmailAndPassword(auth, email, password);
 };
