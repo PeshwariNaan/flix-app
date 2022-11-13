@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const NavContainer = styled.div`
   display: flex;
@@ -25,22 +26,38 @@ export const NavContainer = styled.div`
     height: 6rem;
     margin-top: .5rem;
   }
+
+  NavLink {
+ &.active,
+  :focus
+    {
+      -webkit-filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
+      grayscale(1);
+    filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
+      grayscale(1);
+  }
+  }
 `;
 
 export const IconImage = styled.img`
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  &:hover {
+  /* &:hover {
     -webkit-filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
       grayscale(1);
     filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
       grayscale(1);
-  }
+  } */
   @media (max-width: 600px) {
     height: 1.75rem;
     width: 1.75rem;
   }
+  /* &.active,
+  :focus
+    {
+    border-bottom: 2px solid #ffffff;
+  } */
 `;
 
 export const FlixIconContainer = styled.div`

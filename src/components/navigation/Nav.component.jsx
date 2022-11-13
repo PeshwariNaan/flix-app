@@ -5,6 +5,7 @@ import MovieIcon from '../../assets/icon-nav-movies.svg';
 import BookmarkIcon from '../../assets/icon-nav-bookmark.svg';
 import TvIcon from '../../assets/icon-nav-tv-series.svg';
 import Avatar from '../../assets/image-avatar.png';
+import NavItem from './NavItem';
 import {
   NavContainer,
   IconImage,
@@ -22,16 +23,18 @@ const Nav = (props) => {
         <FlixIcon src={Logo} />
       </FlixIconContainer>
       <NavButtonsContainer>
-        <NavLink to={'/'}>
+        <NavItem link="/" clicked={props.clicked}>
           <IconImage src={NavHome} />
-        </NavLink>
-        <NavLink to={'movies'}>
+        </NavItem>
+        <NavItem link="movies">
           <IconImage src={MovieIcon} />
-        </NavLink>
-        <NavLink to={'tvseries'}>
+        </NavItem>
+        <NavItem link="tvseries">
           <IconImage src={TvIcon} />
-        </NavLink>
-        <IconImage src={BookmarkIcon} />
+        </NavItem>
+        <NavItem link="signin-signup">
+          <IconImage src={BookmarkIcon} />
+        </NavItem>
       </NavButtonsContainer>
       <AvatarContainer>
         <AvatarImg src={Avatar} alt="Avatar image" />
