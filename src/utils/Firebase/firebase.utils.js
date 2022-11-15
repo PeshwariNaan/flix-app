@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
-  signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -43,7 +42,8 @@ export const db = getFirestore();
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 
-//Function to add moviesAndShows data to firebase - firestore
+//Function to add moviesAndShows data to firebase - firestore - Used only once in show context
+//to upload data.
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
@@ -121,3 +121,10 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+//Built in function to sign-out of firebase but don't forget to setCurrentUser to null - we access this through useContext as well
+export const signOutUser = async () => signOut(auth);
+
+//This will call the callback when the state of the auth changes (on sign-in and sign-out for example) - this is always listening for changes.
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);

@@ -32,7 +32,7 @@ const Nav = (props) => {
         <NavItem link="tvseries">
           <IconImage src={TvIcon} />
         </NavItem>
-        <NavItem link="signin-signup">
+        <NavItem link="authentication">
           <IconImage src={BookmarkIcon} />
         </NavItem>
       </NavButtonsContainer>

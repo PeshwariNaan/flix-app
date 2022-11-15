@@ -4,7 +4,7 @@ import MoviesPage from './routes/movies-page/MoviesPage.component';
 import SeriesPage from './routes/series-page/SeriesPage.component';
 import HomePage from './routes/home-page/HomePage.component';
 import Nav from './components/navigation/Nav.component';
-import SignIn from './routes/sign-in/SignIn.component';
+import SignIn from './routes/sign-in/Authentication.component';
 import { GlobalStyles } from './theme';
 import './App.css';
 
@@ -19,7 +19,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="movies" element={<MoviesPage />} />
           <Route path='tvseries' element={<SeriesPage />} />
-          <Route path='signin-signup' element={<SignIn />} />
+          <Route path='authentication' element={<SignIn />} />
         </Routes>
       </main>
     </Fragment>
