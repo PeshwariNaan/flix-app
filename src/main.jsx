@@ -5,17 +5,20 @@ import { BrowserRouter } from 'react-router-dom';
 //import { SliderProvider } from './store/sliderContext';
 import { DisplayProvider } from './store/displayContext';
 import { ShowProvider } from './store/showContext';
+import { UserProvider } from './store/userContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ShowProvider>
-        <DisplayProvider>
-          {/* <SliderProvider> */}
+      <UserProvider>
+        <ShowProvider>
+          <DisplayProvider>
+            {/* <SliderProvider> */}
             <App />
-          {/* </SliderProvider> */}
-        </DisplayProvider>
-      </ShowProvider>
+            {/* </SliderProvider> */}
+          </DisplayProvider>
+        </ShowProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

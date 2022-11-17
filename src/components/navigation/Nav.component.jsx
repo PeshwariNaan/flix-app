@@ -6,6 +6,7 @@ import BookmarkIcon from '../../assets/icon-nav-bookmark.svg';
 import TvIcon from '../../assets/icon-nav-tv-series.svg';
 import Avatar from '../../assets/image-avatar.png';
 import NavItem from './NavItem';
+import { signOutUser } from '../../utils/Firebase/firebase.utils';
 import {
   NavContainer,
   IconImage,
@@ -17,26 +18,28 @@ import {
 } from './nav.styles';
 
 const Nav = (props) => {
+
   return (
     <NavContainer>
       <FlixIconContainer>
         <FlixIcon src={Logo} />
       </FlixIconContainer>
       <NavButtonsContainer>
-        <NavItem link="/" clicked={props.clicked}>
+        <NavItem link="/home" clicked={props.clicked}>
           <IconImage src={NavHome} />
         </NavItem>
-        <NavItem link="movies">
+        <NavItem link="/movies">
           <IconImage src={MovieIcon} />
         </NavItem>
-        <NavItem link="tvseries">
+        <NavItem link="/tvseries">
           <IconImage src={TvIcon} />
         </NavItem>
-        <NavItem link="authentication">
+        
           <IconImage src={BookmarkIcon} />
-        </NavItem>
+        
       </NavButtonsContainer>
       <AvatarContainer>
+        <button onClick={signOutUser}>signout</button>
         <AvatarImg src={Avatar} alt="Avatar image" />
       </AvatarContainer>
     </NavContainer>
