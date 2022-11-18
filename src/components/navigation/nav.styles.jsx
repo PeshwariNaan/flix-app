@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+
 
 export const NavContainer = styled.div`
-  display: flex;
+  display: ${props => props.user? 'flex' : 'none'};
   position: fixed;
   top: 2%;
   left: 1.5%;
@@ -43,21 +43,10 @@ export const IconImage = styled.img`
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  /* &:hover {
-    -webkit-filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
-      grayscale(1);
-    filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
-      grayscale(1);
-  } */
   @media (max-width: 600px) {
     height: 1.75rem;
     width: 1.75rem;
   }
-  /* &.active,
-  :focus
-    {
-    border-bottom: 2px solid #ffffff;
-  } */
 `;
 
 export const FlixIconContainer = styled.div`
@@ -119,7 +108,6 @@ export const AvatarContainer = styled.div`
 export const AvatarImg = styled.img`
   height: 5rem;
   width: 5rem;
-  //margin-bottom: 3rem;
   @media (max-width: 600px) {
     height: 3.5rem;
     width: 3.5rem;

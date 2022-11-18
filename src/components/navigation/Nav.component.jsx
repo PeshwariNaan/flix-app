@@ -20,7 +20,7 @@ import {
 const Nav = (props) => {
 
   return (
-    <NavContainer>
+    <NavContainer user={props.hasUser}>
       <FlixIconContainer>
         <FlixIcon src={Logo} />
       </FlixIconContainer>
