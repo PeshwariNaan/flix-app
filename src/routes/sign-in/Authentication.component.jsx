@@ -8,7 +8,7 @@ import Nav from '../../components/navigation/Nav.component';
 import HomePage from '../home-page/HomePage.component';
 
 const Authentication = () => {
-  const [haveAccount, setHaveAccount] = useState(false);
+  const [haveAccount, setHaveAccount] = useState(true);
   const {currentUser} = useContext(UserContext)
 
   const formChangeHandler = () => {

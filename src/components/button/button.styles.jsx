@@ -6,7 +6,6 @@ export const BaseButton = styled.button`
   height: 5rem;
   letter-spacing: 0.5px;
   line-height: 50px;
-  //padding: 0 35px 0 35px;
   font-size: 15px;
   background-color: var(--red);
   color: var(--white);

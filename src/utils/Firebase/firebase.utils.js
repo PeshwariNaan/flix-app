@@ -11,6 +11,9 @@ import {
 import {
   getFirestore,
   doc,
+  updateDoc, 
+  arrayUnion, 
+  arrayRemove,
   getDoc,
   setDoc,
   collection,
@@ -81,6 +84,8 @@ export const getCategoriesAndDocuments = async () => {
   //return categoryMap;
 };
 
+
+//This function creates a new user. If the user already exists, no new document will be created
 export const createUserDocumentFromAuth = async (
   userAuth,
   additionalInfo = {}
@@ -99,6 +104,7 @@ export const createUserDocumentFromAuth = async (
         displayName,
         email,
         createdAt,
+        bookmarks: [],
         ...additionalInfo,
       });
     } catch (error) {

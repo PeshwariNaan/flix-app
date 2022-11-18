@@ -78,6 +78,7 @@ const HomePage = () => {
                       key={show.id}
                       show={show}
                       trending={show.isTrending}
+                      bookmarked={show.isBookmarked}
                     />
                   );
                 })}

@@ -16,7 +16,7 @@ function App() {
     <Fragment>
       <GlobalStyles />
       <main>
-        <Nav />
+        <Nav hasUser={currentUser}/>
         <Routes>
           <Route index element={<Authentication />} />
           <Route path="authentication" element={<Authentication />} />
