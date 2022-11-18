@@ -18,7 +18,6 @@ import {
 } from './nav.styles';
 
 const Nav = (props) => {
-
   return (
     <NavContainer user={props.hasUser}>
       <FlixIconContainer>
@@ -34,9 +33,9 @@ const Nav = (props) => {
         <NavItem link="/tvseries">
           <IconImage src={TvIcon} />
         </NavItem>
-        
+        <NavItem link="/bookmarks">
           <IconImage src={BookmarkIcon} />
-        
+        </NavItem>
       </NavButtonsContainer>
       <AvatarContainer>
         <button onClick={signOutUser}>signout</button>

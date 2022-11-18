@@ -4,6 +4,7 @@ import { UserContext } from './store/userContext';
 import MoviesPage from './routes/movies-page/MoviesPage.component';
 import SeriesPage from './routes/series-page/SeriesPage.component';
 import HomePage from './routes/home-page/HomePage.component';
+import BookmarksPage from './routes/bookmarks-page/BookmarksPage.component';
 import Nav from './components/navigation/Nav.component';
 import ProtectedRoute from './routes/protected-route/ProtectedRoute.component';
 import Authentication from './routes/sign-in/Authentication.component';
@@ -25,7 +26,7 @@ function App() {
             <Route path='/home' element={<HomePage />} />
             <Route path="movies" element={<MoviesPage />} />
             <Route path="tvseries" element={<SeriesPage />} />
-
+            <Route path="bookmarks" element={<BookmarksPage />} />
             <Route path="*" element={<h1>There is nothing here: 404</h1>} />
           </Route>
         </Routes>

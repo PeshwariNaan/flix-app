@@ -5,14 +5,14 @@ import DetailsModal from '../../components/UI/DetailsModal';
 import { DisplayContext } from '../../store/displayContext';
 import SearchBox from '../../components/Search-Box/SearchBox';
 import {
-  MoviesMainContainer,
-  MovieHeadingsContainer,
-  MoviesContainer,
-} from './moviesPage.styles';
+  BookmarkedShowsMainContainer,
+  BookmarkedShowsContainer,
+  BookmarkedHeadingsContainer,
+} from './bookmarksPage.styles';
 
-const MoviesPage = () => {
+const BookmarksPage = (props) => {
   const [searchField, setSearchField] = useState([]);
-  const { movies } = useContext(ShowContext);
+  const { allShows } = useContext(ShowContext);
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
@@ -24,29 +24,28 @@ const MoviesPage = () => {
     });
     setSearchedShows(searchedData);
   };
-  
   return (
     <Fragment>
-      <MoviesMainContainer>
+      <BookmarkedShowsMainContainer>
         <SearchBox
-          placeholder={'Search for movies'}
+          placeholder={'Search for bookmarked shows'}
           value={searchField}
           onChangeHandler={searchMoviesAndShows}
         />
-        <MovieHeadingsContainer>
-          <h1>Movies</h1>
-        </MovieHeadingsContainer>
-        <MoviesContainer>
-          {movies.map((show) => {
+        <BookmarkedHeadingsContainer>
+          <h1>Bookmarked shows</h1>
+        </BookmarkedHeadingsContainer>
+        <BookmarkedShowsContainer>
+          {allShows.map((show) => {
             return (
               <Card key={show.id} show={show} trending={show.isTrending} />
             );
           })}
-        </MoviesContainer>
+        </BookmarkedShowsContainer>
         {isOpen && <DetailsModal onClose={onHideDetails} />}
-      </MoviesMainContainer>
+      </BookmarkedShowsMainContainer>
     </Fragment>
   );
 };
 
-export default MoviesPage;
+export default BookmarksPage;
