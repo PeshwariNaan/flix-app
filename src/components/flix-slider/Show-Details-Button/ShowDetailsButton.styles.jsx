@@ -4,9 +4,9 @@ import {ShowCard} from '../../card/card.styles'
 
 export const DetailsButton = styled.button`
   position: absolute;
-  bottom: 0;
+  /* bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   opacity: 0;
   transition: opacity 500ms ease 100ms;
   background: transparent;
