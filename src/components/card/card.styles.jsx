@@ -28,12 +28,26 @@ export const ShowCard = styled.article`
 export const CardPlayButtonContainer = styled.div`
   position: absolute;
   transition: 0.4s ease 100ms;
-  left: 35%;
-  top: 40%;
-  z-index: 900;
+  left: 1rem;
+  bottom: 5rem;
+  //z-index: 50;
   opacity: 0;
 
   ${ShowCard}:hover & {
     opacity: 1;
   }
 `;
+
+export const BookmarkButtonContainer = styled.div`
+  position: absolute;  
+  right: 5rem;
+  top: 1rem;
+  //z-index: 50;
+ `
+
+export const ShowDetailsButtonContainer = styled.div`
+position: absolute;  
+right: 5rem;
+bottom: 3rem;
+//z-index: 50;
+`
