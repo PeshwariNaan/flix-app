@@ -102,14 +102,15 @@ export const DescriptionDiv = styled.div`
 
 export const PlayButtonContainer = styled.div`
   position: absolute;
-  left: 8rem;
+  left: 2rem;
   top: 75%;
   z-index: 900;
   opacity: 0;
+  transition: opacity 500ms ease 100ms;
 
   ${ShowImageContainer}:hover & {
     opacity: 1;
-    transition: opacity 500ms ease 100ms;
+    
   }
 `;
 
@@ -120,23 +121,31 @@ export const CloseButton = styled.button`
   border-radius: 5rem;
   color: #fff;
   background: rgba(0, 0, 0, .5);
-  top: 3rem;
-  right: 8rem;
+  top: 1rem;
+  right: 2rem;
   opacity: 0;
+  transition: opacity 500ms ease 100ms;
 
   ${ShowImageContainer}:hover & {
     opacity: 1;
-    transition: all 1000ms;
+    //transition: opacity 500ms ease 100ms;
   }
 
   ion-icon {
     font-size: 3rem;
     color: var(--white);
     cursor: pointer;
-    transition: all 1s linear;
+    //transition: all 1s linear;
 
     @media (max-width: 500px) {
       font-size: 1.5rem;
     }
   }
 `;
+
+export const BookmarkButtonContainer = styled.div`
+  position: absolute;  
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+ `

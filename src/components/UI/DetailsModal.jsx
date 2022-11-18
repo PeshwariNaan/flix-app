@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import { DisplayContext } from '../../store/displayContext';
 import DetailsHeading from '../Details-Heading/DetailsHeading';
 import PlayButton from '../Play-Button/PlayButton';
+import BookmarkButton from '../Bookmark-button/BookmarkButton';
 import {
   BackdropDiv,
   OverLayDiv,
@@ -15,6 +16,7 @@ import {
   GenreList,
   PlayButtonContainer,
   CloseButton,
+  BookmarkButtonContainer
 } from './detailsModal.styles';
 
 const Backdrop = (props) => {
@@ -74,6 +76,9 @@ const ModalOverlay = (props) => {
   return (
     <OverLayDiv>
       <ShowImageContainer>
+        <BookmarkButtonContainer>
+          <BookmarkButton bookmarked={currentSlide.isBookmarked}/>
+        </BookmarkButtonContainer>
         <PlayButtonContainer>
           <PlayButton />
         </PlayButtonContainer>
