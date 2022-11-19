@@ -16,10 +16,13 @@ export const UserProvider = ({ children }) => {
             createUserDocumentFromAuth(user)
         }
         setCurrentUser(user)
+        
     });
 
     return unsubscribe;
   }, []);
+
+
 
   const value = {
     currentUser,

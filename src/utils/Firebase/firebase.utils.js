@@ -11,8 +11,8 @@ import {
 import {
   getFirestore,
   doc,
-  updateDoc, 
-  arrayUnion, 
+  updateDoc,
+  arrayUnion,
   arrayRemove,
   getDoc,
   setDoc,
@@ -37,13 +37,14 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
-  prompt: "select_account",
+  prompt: 'select_account',
 });
 
 export const db = getFirestore();
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
 
 //Function to add moviesAndShows data to firebase - firestore - Used only once in show context
 //to upload data.
@@ -67,8 +68,8 @@ export const addCollectionAndDocuments = async (
 //This type of helper function isolates the areas that our application interfaces with things that change
 // i.e. third party libraries - bad thing about google and firebase.
 // This way we only have to change this one function rather than chase problems through the app if something changes
-export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'moviesAndShows');
+export const getCategoriesAndDocuments = async (dbcollection) => {
+  const collectionRef = collection(db, dbcollection);
   const q = query(collectionRef);
 
   const querySnapShot = await getDocs(q);
@@ -83,7 +84,6 @@ export const getCategoriesAndDocuments = async () => {
 
   //return categoryMap;
 };
-
 
 //This function creates a new user. If the user already exists, no new document will be created
 export const createUserDocumentFromAuth = async (
@@ -114,6 +114,23 @@ export const createUserDocumentFromAuth = async (
 
   //if user data exists
   return userDocRef;
+};
+
+//Add a value to the bookmarks array for individual user
+export const addBookmarkForUser = async (userAuth, showId) => {
+  console.log('addBookmark fired', 'userID', userAuth.uid, 'showID', showId)
+  const userRef = doc(db, 'users', userAuth.uid);
+  await updateDoc(userRef, {
+    bookmarks: arrayUnion(showId),
+  });
+};
+
+export const deleteBookmarkForUser = async (userAuth, showId) => {
+  console.log('deleteBookmark fired', 'userID', userAuth.uid, 'showID', showId)
+  const userRef = doc(db, 'users', userAuth.uid);
+  await updateDoc(userRef, {
+    bookmarks: arrayRemove(showId),
+  });
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {

@@ -3,7 +3,7 @@ import { StyledBookmarkButton } from './bookmarkButton.styles';
 
 const BookmarkButton = (props) => {
   return (
-    <StyledBookmarkButton>
+    <StyledBookmarkButton onClick={props.onClick}>
       {props.bookmarked ? (
         <ion-icon name="bookmark"></ion-icon>
       ) : (

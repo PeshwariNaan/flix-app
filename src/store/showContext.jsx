@@ -27,7 +27,7 @@ export const ShowProvider = ({ children }) => {
 
   useEffect(() => {
     const getShowsArray = async () => {
-      const showsArray = await getCategoriesAndDocuments();
+      const showsArray = await getCategoriesAndDocuments('moviesAndShows');
       console.log(showsArray);
       const allShowsArray = showsArray[0].items.concat(showsArray[1].items);
       const moviesArray = showsArray[0].items;
