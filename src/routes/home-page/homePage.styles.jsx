@@ -30,6 +30,11 @@ export const HeadingsContainer = styled.div`
   }
 `;
 
+export const ResultsContainer = styled(ShowsContainer)`
+  grid-template-columns: repeat(auto, minmax(25rem, 1fr)) !important;
+  justify-items: start;
+`;
+
 export const MainShowContainer = styled.div`
   display: flex;
   flex-direction: column;

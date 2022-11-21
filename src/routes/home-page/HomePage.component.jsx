@@ -11,34 +11,41 @@ import {
   MainShowContainer,
   ShowsContainer,
   TrendingContainer,
+  ResultsContainer
 } from './homePage.styles';
 
 const HomePage = () => {
-  const [searchedShows, setSearchedShows] = useState();
-  const [isLoading, setIsLoading] = useState(false);
-  const [searchField, setSearchField] = useState([]);
-  const { allShows, shows } = useContext(ShowContext);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const { allShows } = useContext(ShowContext);
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
-  const searchMoviesAndShows = (e) => {
-    const searchFieldItems = e.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldItems);
-    const searchedData = allShows.filter((show) => {
-      return show.title.toLocaleLowerCase().includes(searchField);
-    });
-    setSearchedShows(searchedData);
+  const handleSearchQuery = (e) => {
+    setSearchQuery(e.target.value.toLocaleLowerCase());
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    searchQuery
+      ? setSearchResults(
+          allShows.filter((show) => {
+            return show.title.toLocaleLowerCase().includes(searchQuery);
+          })
+        )
+      : setSearchResults([]);
   };
 
   return (
     <Fragment>
-      <MainShowContainer>
-        <SearchBox
-          placeholder={'Search for movies or TV series'}
-          value={searchField}
-          onChangeHandler={searchMoviesAndShows}
-        />
-        {searchField.length === 0 ? (
+      <MainShowContainer>       
+          <SearchBox
+            placeholder={'Search for movies or TV series'}
+            searchQuery={searchQuery}
+            handleSearchQuery={handleSearchQuery}
+            handleSearchSubmit={handleSearchSubmit}
+          />       
+        {searchResults.length === 0 ? (
           <Fragment>
             <HeadingsContainer>
               <h1>Trending</h1>
@@ -85,11 +92,11 @@ const HomePage = () => {
             </ShowsContainer>
           </Fragment>
         ) : (
-          <ShowsContainer>
-            {searchedShows.map((show) => (
+          <ResultsContainer>
+            {searchResults.map((show) => (
               <Card key={show.id} show={show} trending={show.isTrending} />
             ))}
-          </ShowsContainer>
+          </ResultsContainer>
         )}
         {isOpen && <DetailsModal onClose={onHideDetails} />}
       </MainShowContainer>
