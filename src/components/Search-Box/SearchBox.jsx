@@ -1,18 +1,26 @@
 import React from 'react';
-import {InputContainer, StyledInput} from './searchBox.styles'
+import { InputContainer, StyledInput } from './searchBox.styles';
 
-const SearchBox = ({ placeholder, onChangeHandler }) => {
-    return (
-      <InputContainer>
-        <ion-icon name="search"></ion-icon>
+const SearchBox = ({
+  placeholder,
+  handleSearchQuery,
+  handleSearchSubmit,
+  searchQuery,
+}) => {
+  return (
+    <InputContainer>
+      <ion-icon name="search"></ion-icon>
+      <form onSubmit={handleSearchSubmit}>
         <StyledInput
-          type="search"
+          type="text"
           placeholder={placeholder}
-          onChange={onChangeHandler}
+          onChange={handleSearchQuery}
+          value={searchQuery}
           aria-label="Search"
         />
-      </InputContainer>
-    );
-  };
+      </form>
+    </InputContainer>
+  );
+};
 
-  export default SearchBox
+export default SearchBox;

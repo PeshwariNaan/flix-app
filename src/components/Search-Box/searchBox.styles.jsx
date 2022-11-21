@@ -12,6 +12,9 @@ export const InputContainer = styled.div`
     color: var(--white);
     align-self: center;
   }
+  form {
+    width: 100%;
+  }
 `;
 
 export const StyledInput = styled.input`
