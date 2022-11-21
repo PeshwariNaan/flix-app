@@ -16,6 +16,12 @@ export const InputContainer = styled.div`
   form {
     width: 40rem;
   }
+  @media (max-width: 500px) {
+    width: 30rem;
+   form {
+    width: 30rem;
+   }
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -30,6 +36,12 @@ export const StyledInput = styled.input`
   line-height: 2rem;
     &::placeholder{
         font-size: var(--Mhead) ;
+  }
+
+  @media (max-width: 500px) {
+    &::placeholder{
+        font-size: var(--body-med) ;
+  }
   }
 `;
 

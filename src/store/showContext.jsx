@@ -17,8 +17,7 @@ export const ShowProvider = ({ children }) => {
   const [allShows, setAllShows] = useState([]);
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
-  const [bookmarkedShows, setBookmarkedShows] = useState([])
-  
+  const [bookmarkedShows, setBookmarkedShows] = useState([])  
 
   // This was run once to populate the firestore db with our data file - SHOW_DATA// Here for demonstration only - no need to run after
   // data has been uploaded once.

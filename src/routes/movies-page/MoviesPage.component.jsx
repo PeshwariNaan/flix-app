@@ -39,7 +39,7 @@ const MoviesPage = () => {
     <Fragment>
       <MoviesMainContainer>
         <SearchBox
-          placeholder={'Search for movies or TV series'}
+          placeholder={'Search for Movies'}
           searchQuery={searchQuery}
           handleSearchQuery={handleSearchQuery}
           handleSearchSubmit={handleSearchSubmit}
