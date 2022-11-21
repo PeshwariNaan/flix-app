@@ -28,14 +28,15 @@ export const NavContainer = styled.div`
   }
 
   NavLink {
- &.active,
+    
+ /* &.active,
   :focus
     {
       -webkit-filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
       grayscale(1);
     filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
       grayscale(1);
-  }
+  } */
   }
 `;
 
