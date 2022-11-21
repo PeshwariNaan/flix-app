@@ -28,6 +28,11 @@ export const SeriesContainer = styled.div`
   }
 `;
 
+export const ResultsContainer = styled(SeriesContainer)`
+  grid-template-columns: repeat(auto, minmax(25rem, 50rem)) !important;
+  justify-items: start;
+`;
+
 export const SeriesHeadingsContainer = styled.div`
   display: flex;
   h1 {
