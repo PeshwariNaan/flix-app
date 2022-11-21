@@ -7,6 +7,7 @@ export const SignUpContainer = styled.div`
   border-radius: 1rem;
   padding: 0 2rem 4rem 2rem;
   background-color: var(--bg-ele) ;
+  align-self: center;
   h2 {
     margin: 0 0 0 0;
   }
@@ -14,6 +15,10 @@ export const SignUpContainer = styled.div`
     color: var(--white);
     font-size:var(--body-med) ;
     text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    width: 37rem;
   }
 `;
 
