@@ -1,15 +1,12 @@
 import React, { Fragment, useState, useContext } from 'react';
 import { ShowContext } from '../../store/showContext';
-import Card from '../../components/card/Card.component';
+
 import DetailsModal from '../../components/UI/DetailsModal';
 import { DisplayContext } from '../../store/displayContext';
 import SearchBox from '../../components/Search-Box/SearchBox';
-import {
-  MoviesMainContainer,
-  MovieHeadingsContainer,
-  MoviesContainer,
-  ResultsContainer
-} from './moviesPage.styles';
+import ShowBox from '../../components/show-box-container/ShowBox';
+import ResultsBox from '../../components/results-box/ResultsBox';
+import { MoviesMainContainer } from './moviesPage.styles';
 
 const MoviesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -33,6 +30,11 @@ const MoviesPage = () => {
       : setSearchResults([]);
   };
 
+  const clearInputHandler = () => {
+    setSearchQuery('');
+    setSearchResults([]);
+  };
+
   return (
     <Fragment>
       <MoviesMainContainer>
@@ -41,28 +43,13 @@ const MoviesPage = () => {
           searchQuery={searchQuery}
           handleSearchQuery={handleSearchQuery}
           handleSearchSubmit={handleSearchSubmit}
+          maxLength={40}
+          clearInput={clearInputHandler}
         />
         {searchResults.length === 0 ? (
-          <>
-            <MovieHeadingsContainer>
-              <h1>Movies</h1>
-            </MovieHeadingsContainer>
-            <MoviesContainer>
-              {movies.map((show) => {
-                return (
-                  <Card key={show.id} show={show} trending={show.isTrending} />
-                );
-              })}
-            </MoviesContainer>
-          </>
+          <ShowBox title="Movies" shows={movies} />
         ) : (
-          <ResultsContainer>
-            {searchResults.map((show) => {
-              return (
-                <Card key={show.id} show={show} trending={show.isTrending} />
-              );
-            })}
-          </ResultsContainer>
+          <ResultsBox resultText={searchQuery} results={searchResults} />
         )}
 
         {isOpen && <DetailsModal onClose={onHideDetails} />}

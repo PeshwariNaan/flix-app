@@ -6,12 +6,12 @@ import Slider from '../../components/flix-slider/Slider/Slider';
 import DetailsModal from '../../components/UI/DetailsModal';
 import { DisplayContext } from '../../store/displayContext';
 import SearchBox from '../../components/Search-Box/SearchBox';
+import ResultsBox from '../../components/results-box/ResultsBox';
 import {
   HeadingsContainer,
   MainShowContainer,
   ShowsContainer,
   TrendingContainer,
-  ResultsContainer
 } from './homePage.styles';
 
 const HomePage = () => {
@@ -36,6 +36,11 @@ const HomePage = () => {
       : setSearchResults([]);
   };
 
+  const clearInputHandler = () => {
+    setSearchQuery('')
+    setSearchResults([])
+  }
+
   return (
     <Fragment>
       <MainShowContainer>       
@@ -44,6 +49,8 @@ const HomePage = () => {
             searchQuery={searchQuery}
             handleSearchQuery={handleSearchQuery}
             handleSearchSubmit={handleSearchSubmit}
+            clearInput={clearInputHandler}
+            maxLength={40}
           />       
         {searchResults.length === 0 ? (
           <Fragment>
@@ -92,11 +99,7 @@ const HomePage = () => {
             </ShowsContainer>
           </Fragment>
         ) : (
-          <ResultsContainer>
-            {searchResults.map((show) => (
-              <Card key={show.id} show={show} trending={show.isTrending} />
-            ))}
-          </ResultsContainer>
+          <ResultsBox resultText={searchQuery} results={searchResults} />
         )}
         {isOpen && <DetailsModal onClose={onHideDetails} />}
       </MainShowContainer>

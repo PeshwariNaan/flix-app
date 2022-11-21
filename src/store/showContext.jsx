@@ -17,7 +17,8 @@ export const ShowProvider = ({ children }) => {
   const [allShows, setAllShows] = useState([]);
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
-  //const [shows, setShows] = useState(SHOWS);
+  const [bookmarkedShows, setBookmarkedShows] = useState([])
+  
 
   // This was run once to populate the firestore db with our data file - SHOW_DATA// Here for demonstration only - no need to run after
   // data has been uploaded once.
@@ -28,15 +29,22 @@ export const ShowProvider = ({ children }) => {
   useEffect(() => {
     const getShowsArray = async () => {
       const showsArray = await getCategoriesAndDocuments('moviesAndShows');
-      console.log(showsArray);
+      
       const allShowsArray = showsArray[0].items.concat(showsArray[1].items);
       const moviesArray = showsArray[0].items;
       const seriesArray = showsArray[1].items;
-
-      console.log('testArray', allShowsArray);
       setAllShows(allShowsArray);
       setMovies(moviesArray);
       setSeries(seriesArray);
+      const bookmarkedShows = allShowsArray.filter((show) => {
+        if(show.isBookmarked === true){
+          return show
+        }else{
+          return false
+        }
+      })
+      setBookmarkedShows(bookmarkedShows)
+      console.log(bookmarkedShows)
     };
     getShowsArray();
   }, []);
@@ -45,6 +53,7 @@ export const ShowProvider = ({ children }) => {
     allShows,
     movies,
     series,
+    bookmarkedShows
   };
 
   return <ShowContext.Provider value={value}>{children}</ShowContext.Provider>;

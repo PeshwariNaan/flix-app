@@ -1,21 +1,18 @@
 import React, { Fragment, useState, useContext } from 'react';
 import { ShowContext } from '../../store/showContext';
-import Card from '../../components/card/Card.component';
-import DetailsModal from '../../components/UI/DetailsModal';
 import { DisplayContext } from '../../store/displayContext';
+import DetailsModal from '../../components/UI/DetailsModal';
 import SearchBox from '../../components/Search-Box/SearchBox';
+import ShowBox from '../../components/show-box-container/ShowBox';
+import ResultsBox from '../../components/results-box/ResultsBox';
 import {
   SeriesMainContainer,
-  SeriesContainer,
-  SeriesHeadingsContainer,
-  ResultsContainer,
 } from './seriesPage.styles';
 
 const SeriesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const { series } = useContext(ShowContext);
-
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
   const handleSearchQuery = (e) => {
@@ -33,39 +30,26 @@ const SeriesPage = () => {
       : setSearchResults([]);
   };
 
+  const clearInputHandler = () => {
+    setSearchQuery('')
+    setSearchResults([])
+  }
+
   return (
     <Fragment>
       <SeriesMainContainer>
         <SearchBox
-          placeholder={'Search for movies or TV series'}
+          placeholder={'Search for a TV series'}
           searchQuery={searchQuery}
           handleSearchQuery={handleSearchQuery}
           handleSearchSubmit={handleSearchSubmit}
+          maxLength={40}
+          clearInput={clearInputHandler}
         />
         {searchResults.length === 0 ? (
-          <>
-            {' '}
-            <SeriesHeadingsContainer>
-              <h1>TV Series</h1>
-            </SeriesHeadingsContainer>
-            <SeriesContainer>
-              {series.map((show) => {
-                return (
-                  <Card key={show.id} show={show} trending={show.isTrending} />
-                );
-              })}
-            </SeriesContainer>
-          </>
+          <ShowBox shows={series} title="TV Series" />
         ) : (
-          <>
-            <ResultsContainer>
-              {searchResults.map((show) => {
-                return (
-                  <Card key={show.id} show={show} trending={show.isTrending} />
-                );
-              })}
-            </ResultsContainer>
-          </>
+          <ResultsBox resultText={searchQuery} results={searchResults} />
         )}
 
         {isOpen && <DetailsModal onClose={onHideDetails} />}

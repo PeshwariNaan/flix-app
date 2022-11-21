@@ -3,9 +3,8 @@ import { UserContext } from '../../store/userContext';
 import { Navigate } from 'react-router-dom';
 import SignUpForm from '../../components/sign-up-form/SignUpForm';
 import SignInForm from '../../components/sign-in-form/SignInForm';
-import { InputDiv } from './authentication.styles';
-import Nav from '../../components/navigation/Nav.component';
-import HomePage from '../home-page/HomePage.component';
+import { FlixIcon, InputDiv } from './authentication.styles';
+import Logo from '../../assets/logo.svg'
 
 const Authentication = () => {
   const [haveAccount, setHaveAccount] = useState(true);
@@ -24,6 +23,7 @@ const Authentication = () => {
     return (
      
         <InputDiv>
+        <FlixIcon src={Logo} alt='flix logo' />
         {haveAccount ? 
         <SignInForm onClick={formChangeHandler }/> : 
         <SignUpForm onClick={formChangeHandler }/>}

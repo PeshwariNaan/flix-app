@@ -27,17 +27,6 @@ export const NavContainer = styled.div`
     margin-top: .5rem;
   }
 
-  NavLink {
-    
- /* &.active,
-  :focus
-    {
-      -webkit-filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
-      grayscale(1);
-    filter: hue-rotate(10deg) saturate(0.5) brightness(390%) saturate(4)
-      grayscale(1);
-  } */
-  }
 `;
 
 export const IconImage = styled.img`

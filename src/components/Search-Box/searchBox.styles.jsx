@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const InputContainer = styled.div`
+  position: relative;
   display: flex;
-  width: 100%;
+  width: 40rem;
   height: 6rem;
   background-color: none;
   margin: 3rem 0;
@@ -13,7 +14,7 @@ export const InputContainer = styled.div`
     align-self: center;
   }
   form {
-    width: 100%;
+    width: 40rem;
   }
 `;
 
@@ -31,3 +32,35 @@ export const StyledInput = styled.input`
         font-size: var(--Mhead) ;
   }
 `;
+
+export const ClearInputButton = styled.div`
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5rem;
+  color: #fff;
+  background: rgba(0, 0, 0, .5);
+  top: 15px;
+  right: -2rem;
+  opacity: 0;
+  transition: opacity 500ms ease 100ms;
+
+  ${InputContainer}:hover & {
+    opacity: 1;
+  }
+
+  @media (max-width: 1000px) {
+    opacity: 1;
+  }
+
+  ion-icon {
+    font-size: 3rem;
+    color: var(--white);
+    cursor: pointer;
+   
+    @media (max-width: 500px) {
+      font-size: 1.5rem;
+    }
+  }
+`;
+

@@ -7,7 +7,7 @@ import HomePage from './routes/home-page/HomePage.component';
 import BookmarksPage from './routes/bookmarks-page/BookmarksPage.component';
 import Nav from './components/navigation/Nav.component';
 import ProtectedRoute from './routes/protected-route/ProtectedRoute.component';
-import Authentication from './routes/sign-in/Authentication.component';
+import Authentication from './routes/authentication-page/Authentication.component'
 import { GlobalStyles } from './theme';
 import './App.css';
 
