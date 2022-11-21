@@ -8,41 +8,63 @@ import {
   MoviesMainContainer,
   MovieHeadingsContainer,
   MoviesContainer,
+  ResultsContainer
 } from './moviesPage.styles';
 
 const MoviesPage = () => {
-  const [searchField, setSearchField] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const { movies } = useContext(ShowContext);
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
-  const searchMoviesAndShows = (e) => {
-    const searchFieldItems = e.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldItems);
-    const searchedData = movies.filter((show) => {
-      return show.title.toLocaleLowerCase().includes(searchField);
-    });
-    setSearchedShows(searchedData);
+  const handleSearchQuery = (e) => {
+    setSearchQuery(e.target.value.toLocaleLowerCase());
   };
-  
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    searchQuery
+      ? setSearchResults(
+          movies.filter((show) => {
+            return show.title.toLocaleLowerCase().includes(searchQuery);
+          })
+        )
+      : setSearchResults([]);
+  };
+
   return (
     <Fragment>
       <MoviesMainContainer>
         <SearchBox
-          placeholder={'Search for movies'}
-          value={searchField}
-          onChangeHandler={searchMoviesAndShows}
+          placeholder={'Search for movies or TV series'}
+          searchQuery={searchQuery}
+          handleSearchQuery={handleSearchQuery}
+          handleSearchSubmit={handleSearchSubmit}
         />
-        <MovieHeadingsContainer>
-          <h1>Movies</h1>
-        </MovieHeadingsContainer>
-        <MoviesContainer>
-          {movies.map((show) => {
-            return (
-              <Card key={show.id} show={show} trending={show.isTrending} />
-            );
-          })}
-        </MoviesContainer>
+        {searchResults.length === 0 ? (
+          <>
+            <MovieHeadingsContainer>
+              <h1>Movies</h1>
+            </MovieHeadingsContainer>
+            <MoviesContainer>
+              {movies.map((show) => {
+                return (
+                  <Card key={show.id} show={show} trending={show.isTrending} />
+                );
+              })}
+            </MoviesContainer>
+          </>
+        ) : (
+          <ResultsContainer>
+            {searchResults.map((show) => {
+              return (
+                <Card key={show.id} show={show} trending={show.isTrending} />
+              );
+            })}
+          </ResultsContainer>
+        )}
+
         {isOpen && <DetailsModal onClose={onHideDetails} />}
       </MoviesMainContainer>
     </Fragment>
