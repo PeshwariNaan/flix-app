@@ -1,14 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
 const slideDown = keyframes`
-  from {
+  0%{
     opacity: 0;    
-    //transform: scaleX(0) scaleY(0);
+    transform: translateY(-600px) scale(0);
   }
-  to {
-    opacity: 1;
-    transform-origin: -500px -500px;
-    transform: translateX(0px) ;
+
+  100% {
+    opacity: 1;    
+    transform: translateY(0px) scale(1);
   }
   `;
 
@@ -27,11 +27,11 @@ export const OverLayDiv = styled.div`
   display: grid;
   grid-template-rows: [row1-start] min-content [row1-end row2-start] auto [row2-end];
   grid-template-columns: 1;
-  top: 10vh;
+  top: 5vh;
   margin: 0 auto;
   left: 0;
   right: 0;
-  width: 40vw;
+  width: 50vw;
   background-color: var(--bg-ele);
   border-radius: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -43,9 +43,12 @@ export const OverLayDiv = styled.div`
     color: var(--white);
   }
 
-  /* @media (max-width: 1100px) {
-    width: 40rem;
-  } */
+  @media (max-width: 1100px) {
+    width: 60rem;
+  }
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 
 export const ShowImageContainer = styled.div`
@@ -64,6 +67,11 @@ export const StyledShowImage = styled.img`
   object-fit: contain;
   min-width: 100%;
   border-radius: 1rem;
+
+  @media (max-width: 500px) {
+    max-width: 100%;
+
+  }
 `;
 
 export const GradientContainer = styled.div`
@@ -109,8 +117,11 @@ export const PlayButtonContainer = styled.div`
   transition: opacity 500ms ease 100ms;
 
   ${ShowImageContainer}:hover & {
+    opacity: 1;    
+  }
+
+  @media (max-width: 1000px) {
     opacity: 1;
-    
   }
 `;
 
@@ -128,15 +139,17 @@ export const CloseButton = styled.button`
 
   ${ShowImageContainer}:hover & {
     opacity: 1;
-    //transition: opacity 500ms ease 100ms;
+  }
+
+  @media (max-width: 1000px) {
+    opacity: 1;
   }
 
   ion-icon {
     font-size: 3rem;
     color: var(--white);
     cursor: pointer;
-    //transition: all 1s linear;
-
+   
     @media (max-width: 500px) {
       font-size: 1.5rem;
     }
