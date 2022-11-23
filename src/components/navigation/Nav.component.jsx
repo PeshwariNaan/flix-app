@@ -14,6 +14,7 @@ import {
   NavButtonsContainer,
   AvatarContainer,
   AvatarImg,
+  SignOutLink,
 } from './nav.styles';
 
 const Nav = (props) => {
@@ -37,8 +38,10 @@ const Nav = (props) => {
         </NavItem>
       </NavButtonsContainer>
       <AvatarContainer>
-        <button onClick={signOutUser}>signout</button>
         <AvatarImg src={Avatar} alt="Avatar image" />
+        <SignOutLink as="span" onClick={signOutUser}>
+          SIGN-OUT
+        </SignOutLink>
       </AvatarContainer>
     </NavContainer>
   );

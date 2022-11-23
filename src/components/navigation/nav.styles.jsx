@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 export const NavContainer = styled.div`
-  display: ${props => props.user? 'flex' : 'none'};
+  display: ${(props) => (props.user ? 'flex' : 'none')};
   position: fixed;
   top: 2%;
   left: 1.5%;
@@ -13,20 +13,30 @@ export const NavContainer = styled.div`
   border-radius: 1.5rem;
   align-items: center;
 
+  span {
+    color: var(--white);
+    font-size: var(--body-med);
+  }
+
   @media (max-width: 900px) {
     position: relative;
     flex-direction: row;
     width: 96vw;
     height: 8rem;
-    margin-top: 2rem ;
+    margin-top: 2rem;
     justify-content: space-between;
+    span {
+      font-size: var(--body-small);
+    }
   }
   @media (max-width: 600px) {
     top: 1rem;
     height: 6rem;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
+    span {
+      font-size: var(--body-small);
+    }
   }
-
 `;
 
 export const IconImage = styled.img`
@@ -55,7 +65,6 @@ export const FlixIconContainer = styled.div`
   @media (max-width: 600px) {
     flex-direction: row;
     width: 5rem;
-    
   }
 `;
 
@@ -70,7 +79,10 @@ export const NavButtonsContainer = styled.div`
     width: 35%;
     min-width: 15rem;
     height: 100%;
-    flex-direction: row;
+  }
+  @media (max-width: 600px) {
+    min-width: 10rem;
+    height: 100%;
   }
 `;
 
@@ -84,14 +96,14 @@ export const AvatarContainer = styled.div`
   margin-bottom: 3rem;
   @media (max-width: 900px) {
     flex-direction: row;
-    width: 5rem;
+    width: 15rem;
     height: 5rem;
     flex-direction: row;
     margin: 0 1rem 0 0;
   }
   @media (max-width: 600px) {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 10rem;
+    
   }
 `;
 
@@ -115,4 +127,9 @@ export const FlixIcon = styled.img`
     width: 2.5rem;
     height: 2rem;
   }
+`;
+
+export const SignOutLink = styled(Link)`
+  padding: 1rem;
+  cursor: pointer;
 `;

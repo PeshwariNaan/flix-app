@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InputContainer = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ export const InputContainer = styled.div`
   height: 6rem;
   background-color: none;
   margin: 3rem 0;
- 
+
   ion-icon {
     font-size: 3rem;
     color: var(--white);
@@ -18,30 +18,30 @@ export const InputContainer = styled.div`
   }
   @media (max-width: 500px) {
     width: 30rem;
-   form {
-    width: 30rem;
-   }
+    form {
+      width: 30rem;
+    }
   }
 `;
 
 export const StyledInput = styled.input`
   -webkit-appearance: none;
-  padding: 0 0 0 3rem;  
-  height: 100%; 
+  padding: 0 0 0 3rem;
+  height: 100%;
   width: 100%;
   color: var(--white);
   background-color: transparent;
   border: none;
   outline: none;
   line-height: 2rem;
-    &::placeholder{
-        font-size: var(--Mhead) ;
+  &::placeholder {
+    font-size: var(--Mhead);
   }
 
   @media (max-width: 500px) {
-    &::placeholder{
-        font-size: var(--body-med) ;
-  }
+    &::placeholder {
+      font-size: var(--body-med);
+    }
   }
 `;
 
@@ -49,13 +49,19 @@ export const ClearInputButton = styled.div`
   position: absolute;
   width: 3rem;
   height: 3rem;
-  border-radius: 5rem;
+  border-radius: 3rem;
   color: #fff;
-  background: rgba(0, 0, 0, .5);
+  background: rgba(0, 0, 0, 0.5);
   top: 15px;
   right: -2rem;
   opacity: 0;
   transition: opacity 500ms ease 100ms;
+
+  @media (max-width: 500px) {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+  }
 
   ${InputContainer}:hover & {
     opacity: 1;
@@ -69,10 +75,9 @@ export const ClearInputButton = styled.div`
     font-size: 3rem;
     color: var(--white);
     cursor: pointer;
-   
+
     @media (max-width: 500px) {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 `;
-
