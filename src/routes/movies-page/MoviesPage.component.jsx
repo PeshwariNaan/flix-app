@@ -1,16 +1,18 @@
 import React, { Fragment, useState, useContext } from 'react';
 import { ShowContext } from '../../store/showContext';
-
-import DetailsModal from '../../components/UI/DetailsModal';
 import { DisplayContext } from '../../store/displayContext';
+import Button, { BUTTON_TYPE_CLASSES } from '../../components/button/Button';
+import DetailsModal from '../../components/UI/DetailsModal';
 import SearchBox from '../../components/Search-Box/SearchBox';
 import ShowBox from '../../components/show-box-container/ShowBox';
 import ResultsBox from '../../components/results-box/ResultsBox';
+import ResultsError from '../../components/results-error/ResultsError';
 import { MoviesMainContainer } from './moviesPage.styles';
 
 const MoviesPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [searchCheck, setSearchCheck] = useState(false);
   const { movies } = useContext(ShowContext);
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
@@ -21,6 +23,7 @@ const MoviesPage = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
+    setSearchCheck(true);
     searchQuery
       ? setSearchResults(
           movies.filter((show) => {
@@ -33,6 +36,7 @@ const MoviesPage = () => {
   const clearInputHandler = () => {
     setSearchQuery('');
     setSearchResults([]);
+    setSearchCheck(false);
   };
 
   return (
@@ -46,10 +50,16 @@ const MoviesPage = () => {
           maxLength={40}
           clearInput={clearInputHandler}
         />
-        {searchResults.length === 0 ? (
+        {searchResults.length === 0 && !searchCheck ? (
           <ShowBox title="Movies" shows={movies} />
+        ) : searchCheck && searchResults.length === 0 ? (
+          <ResultsError query={searchQuery} exitResults={clearInputHandler} />
         ) : (
-          <ResultsBox resultText={searchQuery} results={searchResults} />
+          <ResultsBox
+            resultText={searchQuery}
+            results={searchResults}
+            exitResults={clearInputHandler}
+          />
         )}
 
         {isOpen && <DetailsModal onClose={onHideDetails} />}

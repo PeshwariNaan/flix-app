@@ -2,6 +2,7 @@ import React, { Fragment, useState, useContext } from 'react';
 import { ShowContext } from '../../store/showContext';
 import { SliderProvider } from '../../store/sliderContext';
 import Card from '../../components/card/Card.component';
+import ResultsError from '../../components/results-error/ResultsError';
 import Item from '../../components/flix-slider/Item/Item';
 import Slider from '../../components/flix-slider/Slider/Slider';
 import DetailsModal from '../../components/UI/DetailsModal';
@@ -18,6 +19,7 @@ import {
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [searchCheck, setSearchCheck] = useState(false);
   const { allShows } = useContext(ShowContext);
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
@@ -28,6 +30,7 @@ const HomePage = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
+    setSearchCheck(true);
     searchQuery
       ? setSearchResults(
           allShows.filter((show) => {
@@ -40,6 +43,7 @@ const HomePage = () => {
   const clearInputHandler = () => {
     setSearchQuery('');
     setSearchResults([]);
+    setSearchCheck(false);
   };
 
   return (
@@ -53,7 +57,7 @@ const HomePage = () => {
           clearInput={clearInputHandler}
           maxLength={40}
         />
-        {searchResults.length === 0 ? (
+        {searchResults.length === 0 && !searchCheck ? (
           <Fragment>
             <HeadingsContainer>
               <h1>Trending</h1>
@@ -101,8 +105,14 @@ const HomePage = () => {
                 })}
             </ShowsContainer>
           </Fragment>
+        ) : searchCheck && searchResults.length === 0 ? (
+          <ResultsError query={searchQuery} exitResults={clearInputHandler} />
         ) : (
-          <ResultsBox resultText={searchQuery} results={searchResults} exitResults={clearInputHandler} />
+          <ResultsBox
+            resultText={searchQuery}
+            results={searchResults}
+            exitResults={clearInputHandler}
+          />
         )}
         {isOpen && <DetailsModal onClose={onHideDetails} />}
       </MainShowContainer>

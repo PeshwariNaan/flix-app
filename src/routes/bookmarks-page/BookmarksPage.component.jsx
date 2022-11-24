@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
 import { ShowContext } from '../../store/showContext';
-import Card from '../../components/card/Card.component';
+import ResultsError from '../../components/results-error/ResultsError';
 import DetailsModal from '../../components/UI/DetailsModal';
 import { DisplayContext } from '../../store/displayContext';
 import SearchBox from '../../components/Search-Box/SearchBox';
@@ -17,6 +17,7 @@ const BookmarksPage = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [bookmarkedMovies, setBookmarkedMovies] = useState([]);
   const [bookmarkedSeries, setBookmarkedSeries] = useState([]);
+  const [searchCheck, setSearchCheck] = useState(false);
   const { bookmarkedShows } = useContext(ShowContext);
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
@@ -43,9 +44,10 @@ const BookmarksPage = (props) => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
+    setSearchCheck(true)
     searchQuery
       ? setSearchResults(
-        bookmarkedShows.filter((show) => {
+          bookmarkedShows.filter((show) => {
             return show.title.toLocaleLowerCase().includes(searchQuery);
           })
         )
@@ -55,6 +57,7 @@ const BookmarksPage = (props) => {
   const clearInputHandler = () => {
     setSearchQuery('');
     setSearchResults([]);
+    setSearchCheck(false)
   };
   return (
     <Fragment>
@@ -67,24 +70,20 @@ const BookmarksPage = (props) => {
           maxLength={40}
           clearInput={clearInputHandler}
         />
-        {searchResults.length === 0 ? (
+        {searchResults.length === 0 && !searchCheck ? (
           <>
             <ShowBox title="Bookmarked Movies" shows={bookmarkedMovies} />
             <ShowBox title="Bookmarked Series" shows={bookmarkedSeries} />
           </>
+        ) : searchCheck && searchResults.length === 0 ? (
+          <ResultsError query={searchQuery} exitResults={clearInputHandler} />
         ) : (
-          <ResultsBox resultText={searchQuery} results={searchResults} />
+          <ResultsBox
+            resultText={searchQuery}
+            results={searchResults}
+            exitResults={clearInputHandler}
+          />
         )}
-        {/* <BookmarkedHeadingsContainer>
-          <h1>Bookmarked shows</h1>
-        </BookmarkedHeadingsContainer>
-        <BookmarkedShowsContainer>
-          {allShows.map((show) => {
-            return (
-              <Card key={show.id} show={show} trending={show.isTrending} />
-            );
-          })}
-        </BookmarkedShowsContainer> */}
         {isOpen && <DetailsModal onClose={onHideDetails} />}
       </BookmarkedShowsMainContainer>
     </Fragment>

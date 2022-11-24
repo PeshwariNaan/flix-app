@@ -5,8 +5,8 @@ export const BaseButton = styled.button`
   width: auto;
   height: 5rem;
   letter-spacing: 0.5px;
-  line-height: 50px;
-  font-size: 15px;
+  line-height: 5rem;
+  font-size: 1.5rem;
   background-color: var(--red);
   color: var(--white);
   border: none;
@@ -40,4 +40,12 @@ export const ExitButton = styled(BaseButton)`
   height: 3rem;
   line-height: 3rem;
   margin: 0;
+
+  @media (max-width: 600px){
+    width: 6rem;
+    min-width: 6rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: .5rem;
+  }
 `;
