@@ -10,23 +10,23 @@ const useSliding = (elementWidth, countElements) => {
   const [viewed, setViewed] = useState(0);
 
   useEffect(() => {
-    const containerWidth = containerRef.current.clientWidth - PADDINGS; // slider container width
+    const containerWidth = containerRef.current.clientWidth; // slider container width
 
     setContainerWidth(containerWidth);
     console.log('container width', containerWidth);
     setTotalInViewport(Math.floor(containerWidth / (elementWidth )));
-  }, [containerRef.current]);
+  }, [containerRef.current, elementWidth]);
 
   console.log('total in viewport', totalInViewport);
 
   const handlePrev = () => {
     setViewed(viewed - totalInViewport);
-    setDistance(distance + containerWidth);
+    setDistance(distance + elementWidth*totalInViewport);
   };
 
   const handleNext = () => {
     setViewed(viewed + totalInViewport);
-    setDistance(distance - containerWidth);
+    setDistance(distance - elementWidth*totalInViewport);
   };
 
   const slideProps = {

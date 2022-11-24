@@ -13,9 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <UserProvider>
         <ShowProvider>
           <DisplayProvider>
-            {/* <SliderProvider> */}
             <App />
-            {/* </SliderProvider> */}
           </DisplayProvider>
         </ShowProvider>
       </UserProvider>
