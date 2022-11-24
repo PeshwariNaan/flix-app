@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BaseButton = styled.button`
   min-width: 25rem;
@@ -30,17 +30,14 @@ export const GoogleSignInButton = styled(BaseButton)`
     background-color: var(--white);
     color: #4285f4;
     border: none;
-    }
+  }
 `;
 
-export const InvertedButton = styled(BaseButton)`
-  background-color: white;
-  color: black;
+export const ExitButton = styled(BaseButton)`
+  width: 10rem;
   border: 1px solid black;
-
-  &:hover {
-    background-color: black;
-    color: white;
-    border: none;
-  }
+  min-width: 10rem;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 0;
 `;
