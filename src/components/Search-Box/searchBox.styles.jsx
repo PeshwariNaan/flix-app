@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputContainer = styled.div`
   position: relative;
   display: flex;
-  width: 40rem;
+  width: 75vw;
   height: 6rem;
   background-color: none;
   margin: 3rem 0;
@@ -14,13 +14,11 @@ export const InputContainer = styled.div`
     align-self: center;
   }
   form {
-    width: 40rem;
+    width: 100%;
   }
-  @media (max-width: 500px) {
-    width: 30rem;
-    form {
-      width: 30rem;
-    }
+
+  @media (max-width: 900px) {
+    width: 90vw;
   }
 `;
 
@@ -31,17 +29,24 @@ export const StyledInput = styled.input`
   width: 100%;
   color: var(--white);
   background-color: transparent;
-  border: none;
-  outline: none;
   line-height: 2rem;
+  font-size: var(--Mhead) ;
+  transition: border 500ms ease-in ;
+  &:hover,
+  :focus {
+    border-bottom: 1px solid var(--grey);
+  }
+
   &::placeholder {
     font-size: var(--Mhead);
   }
 
   @media (max-width: 500px) {
+    font-size: var(--body-med);
     &::placeholder {
       font-size: var(--body-med);
     }
+
   }
 `;
 
@@ -52,8 +57,8 @@ export const ClearInputButton = styled.div`
   border-radius: 3rem;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
-  top: 15px;
-  right: -2rem;
+  top: 2rem;
+  right: 2rem;
   opacity: 0;
   transition: opacity 500ms ease 100ms;
 

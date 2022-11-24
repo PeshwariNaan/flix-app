@@ -11,7 +11,7 @@ const SearchBox = ({
   handleSearchSubmit,
   searchQuery,
   maxLength,
-  clearInput
+  clearInput,
 }) => {
   return (
     <>
@@ -27,7 +27,7 @@ const SearchBox = ({
             maxLength={maxLength}
           />
         </form>
-        <ClearInputButton onClick={clearInput}>
+        <ClearInputButton type="button" onClick={clearInput}>
           <ion-icon name="close"></ion-icon>
         </ClearInputButton>
       </InputContainer>

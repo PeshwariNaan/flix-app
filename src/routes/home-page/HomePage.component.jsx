@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useContext } from 'react';
 import { ShowContext } from '../../store/showContext';
+import { SliderProvider } from '../../store/sliderContext';
 import Card from '../../components/card/Card.component';
 import Item from '../../components/flix-slider/Item/Item';
 import Slider from '../../components/flix-slider/Slider/Slider';
@@ -37,43 +38,45 @@ const HomePage = () => {
   };
 
   const clearInputHandler = () => {
-    setSearchQuery('')
-    setSearchResults([])
-  }
+    setSearchQuery('');
+    setSearchResults([]);
+  };
 
   return (
     <Fragment>
-      <MainShowContainer>       
-          <SearchBox
-            placeholder={'Search for movies or TV series'}
-            searchQuery={searchQuery}
-            handleSearchQuery={handleSearchQuery}
-            handleSearchSubmit={handleSearchSubmit}
-            clearInput={clearInputHandler}
-            maxLength={40}
-          />       
+      <MainShowContainer>
+        <SearchBox
+          placeholder={'Search for movies or TV series'}
+          searchQuery={searchQuery}
+          handleSearchQuery={handleSearchQuery}
+          handleSearchSubmit={handleSearchSubmit}
+          clearInput={clearInputHandler}
+          maxLength={40}
+        />
         {searchResults.length === 0 ? (
           <Fragment>
             <HeadingsContainer>
               <h1>Trending</h1>
             </HeadingsContainer>
             <TrendingContainer>
-              {/* <Slider>
-                {allShows
-                  .filter((show) => {
-                    if (show.isTrending === true) {
-                      return show;
-                    }
-                    return false;
-                  })
-                  .map((show) => (
-                    <Item
-                      show={show}
-                      key={show.id}
-                      trending={show.isTrending}
-                    />
-                  ))}
-              </Slider> */}
+              <SliderProvider>
+                <Slider>
+                  {allShows
+                    .filter((show) => {
+                      if (show.isTrending === true) {
+                        return show;
+                      }
+                      return false;
+                    })
+                    .map((show) => (
+                      <Item
+                        show={show}
+                        key={show.id}
+                        trending={show.isTrending}
+                      />
+                    ))}
+                </Slider>
+              </SliderProvider>
             </TrendingContainer>
             <HeadingsContainer>
               <h1>Recommended for you</h1>
@@ -99,7 +102,7 @@ const HomePage = () => {
             </ShowsContainer>
           </Fragment>
         ) : (
-          <ResultsBox resultText={searchQuery} results={searchResults} />
+          <ResultsBox resultText={searchQuery} results={searchResults} exitResults={clearInputHandler} />
         )}
         {isOpen && <DetailsModal onClose={onHideDetails} />}
       </MainShowContainer>
