@@ -6,12 +6,10 @@ export const StyledSlideButton = styled.button`
   bottom: 0;
   right: ${props => props.showRight ? 0: null};
   left: ${props => props.showLeft ? 0 : null};
-  width: 55px; // Double this for value of padding in useSliding hook - i.e PADDING = 120
+  width: 5.5rem; 
   background: rgba(0, 0, 0, 0.5);
-  border: 0;
-  outline: 0;
   padding: 0;
-  margin: 40px 0;
+  margin: 4rem 0;
   z-index: 4;
 
   span {
@@ -25,5 +23,9 @@ export const StyledSlideButton = styled.button`
     color: #fff;
     cursor: pointer;
     transition: all 1s linear;    
+    }
+
+    @media (max-width: 600px) {
+      width: 3rem
     }
 `;
