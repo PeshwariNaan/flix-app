@@ -2,9 +2,21 @@ import styled from "styled-components";
 import { ShowBoxContainer } from "../show-box-container/showBox.styles";
 
 
-export const ResultsContainer = styled(ShowBoxContainer)`
-  grid-template-columns: repeat(auto, minmax(15rem, 15rem)) !important;
-  justify-items: start;
+export const ResultsContainer = styled.div`
+   display: grid;
+  margin: 2rem 2rem 15rem 0;
+  grid-template-columns: repeat(auto-fit, 30rem);
+  grid-column-gap: 2rem;
+  justify-items: center;
+  grid-row-gap: 8rem;
+
+  @media (max-width: 900px) {
+    margin: 2rem 0 8rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
 `;
 export const HeadingsContainer = styled.div`
   display: flex;
