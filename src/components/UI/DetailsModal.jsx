@@ -16,7 +16,8 @@ import {
   GenreList,
   PlayButtonContainer,
   CloseButton,
-  BookmarkButtonContainer
+  BookmarkButtonContainer,
+  TitleRatingContainer,
 } from './detailsModal.styles';
 
 const Backdrop = (props) => {
@@ -77,7 +78,7 @@ const ModalOverlay = (props) => {
     <OverLayDiv>
       <ShowImageContainer>
         <BookmarkButtonContainer>
-          <BookmarkButton bookmarked={currentSlide.isBookmarked}/>
+          <BookmarkButton bookmarked={currentSlide.isBookmarked} />
         </BookmarkButtonContainer>
         <PlayButtonContainer>
           <PlayButton />
@@ -92,7 +93,9 @@ const ModalOverlay = (props) => {
         <GradientContainer />
       </ShowImageContainer>
       <ShowDetailsContainer>
-        <DetailsHeading show={currentSlide} />
+        <TitleRatingContainer>
+          <DetailsHeading show={currentSlide} />
+        </TitleRatingContainer>
         <CastList>
           <span style={{ color: 'grey' }}>Cast:</span>
           <span>&nbsp;</span> {actors}
@@ -122,7 +125,7 @@ const DetailsModal = (props) => {
         document.getElementById('backdrop-root')
       )}
       {ReactDom.createPortal(
-        <ModalOverlay onClose={props.onClose}/>,
+        <ModalOverlay onClose={props.onClose} />,
         document.getElementById('overlay-root')
       )}
     </Fragment>
