@@ -16,13 +16,14 @@ export const ItemContainer = styled.div`
   }
 
   &:hover {
-    transform: ${(props) => (props.isOpen ? null : 'scale(1.1)')} !important;
+    transform: ${(props) => (props.isOpen ? null : 'scale(1.1)')};
     z-index: 100;
   }
 
   @media (max-width: 811px) {
     flex: 0 0 50rem;
   }
+
   @media (max-width: 500px) {
     flex: 0 0 25rem;
   }
@@ -35,20 +36,57 @@ export const ShowInfoDiv = styled.div`
   left: 2rem;
 
   @media (max-width: 811px) {
-    bottom: 1rem;
-    left: 2rem;
+    bottom: .5rem;
+    left: 1rem;
+  }
+  @media (max-width: 500px) {
+    bottom: .5rem;
+    left: 0rem;
   }
 `;
+
 export const ItemPlayButtonContainer = styled.div`
   position: absolute;
-  transition: 0.4s ease 100ms;
   width: 11rem;
-  left: 35%;
+  left: 40%;
   top: 40%;
-  z-index: 900;
+  z-index: 5;
   opacity: 0;
+  transition: 0.4s ease 100ms;
 
   ${ItemContainer}:hover & {
     opacity: 1;
+  }
+
+  @media (max-width: 810px) {
+    display: none !important;
+  }
+`;
+
+export const ShowDetailsButtonContainer = styled.div`
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  left: 45%;
+  bottom: 0;
+
+  @media (max-width: 500px) {
+    bottom: null;
+    top: 0;
+    left: 0;
+  }
+`;
+
+export const BookmarkButtonContainer = styled.div`
+  position: absolute;
+  left: 88%;
+  top: 2rem;
+
+  @media (max-width: 810px) {
+    top: 1rem;
+  }
+  @media (max-width: 500px) {
+    top: 1rem;
+    left: 75%;
   }
 `;

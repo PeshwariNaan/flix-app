@@ -4,10 +4,13 @@ import { DisplayContext } from '../../../store/displayContext';
 import ShowDetailsButton from '../Show-Details-Button/ShowDetailsButton';
 import ShowHeading from '../../Show-Heading/ShowHeading';
 import PlayButton from '../../Play-Button/PlayButton';
+import BookmarkButton from '../../Bookmark-button/BookmarkButton';
 import {
   ItemContainer,
   ShowInfoDiv,
   ItemPlayButtonContainer,
+  ShowDetailsButtonContainer,
+  BookmarkButtonContainer,
 } from './item.styles';
 
 const Item = ({ show, trending }) => {
@@ -21,13 +24,18 @@ const Item = ({ show, trending }) => {
         src={show.thumbnail.regular.medium}
         alt={`Show title: ${show.title}`}
       />
+      <BookmarkButtonContainer>
+        <BookmarkButton />
+      </BookmarkButtonContainer>
       <ItemPlayButtonContainer>
         <PlayButton />
       </ItemPlayButtonContainer>
       <ShowInfoDiv>
         <ShowHeading show={show} trending={trending} />
       </ShowInfoDiv>
-      <ShowDetailsButton onClick={() => onShowDetails(show)} />
+      <ShowDetailsButtonContainer>
+        <ShowDetailsButton onClick={() => onShowDetails(show)} />
+      </ShowDetailsButtonContainer>
     </ItemContainer>
   );
 };

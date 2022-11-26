@@ -28,10 +28,13 @@ export const ShowCard = styled.article`
 export const CardPlayButtonContainer = styled.div`
   position: absolute;
   transition: 0.4s ease 100ms;
-  left: 1rem;
-  bottom: 5rem;
-  //z-index: 50;
+  left: 30%;
+  bottom: 45%;
   opacity: 0;
+
+  @media (max-width: 811px){
+    display: none;
+  }
 
   ${ShowCard}:hover & {
     opacity: 1;
@@ -41,13 +44,20 @@ export const CardPlayButtonContainer = styled.div`
 export const BookmarkButtonContainer = styled.div`
   position: absolute;  
   right: 5rem;
-  top: 1rem;
-  //z-index: 50;
+  top: 1rem; 
+
+  @media (max-width: 600px){
+    top: .5rem;
+    right: 4.5rem;
+  }
  `
 
 export const ShowDetailsButtonContainer = styled.div`
 position: absolute;  
 right: 5rem;
 bottom: 3rem;
-//z-index: 50;
+
+@media (max-width: 810px){
+    bottom: 8rem;
+}
 `

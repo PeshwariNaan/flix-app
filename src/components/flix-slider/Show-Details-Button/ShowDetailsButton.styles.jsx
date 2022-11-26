@@ -1,35 +1,38 @@
 import styled from 'styled-components';
 import { ItemContainer } from '../Item/item.styles';
-import {ShowCard} from '../../card/card.styles'
+import { ShowCard } from '../../card/card.styles';
 
 export const DetailsButton = styled.button`
   position: absolute;
-  /* bottom: 0;
-  left: 0;
-  right: 0; */
   opacity: 0;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5rem;
   transition: opacity 500ms ease 100ms;
   background: transparent;
-  border: 0;
   outline: none;
-  width: 100%;
 
-  span {
-    display: block;
-    width: 14px;
-    margin: 0 auto;
-    color: white;
+  @media (max-width: 811px) {
+    width: 4rem;
+    height: 4rem;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
   }
+
   ion-icon {
-    font-size: 30px;
+    font-size: 3rem;
     color: #fff;
     cursor: pointer;
-    
+    @media (max-width: 811px) {
+      font-size: 4rem;
+    }
   }
-  ${ItemContainer}:hover & { //ItemContainer is for trending shows item
+  ${ItemContainer}:hover & {
+    //ItemContainer is for trending shows item
     opacity: 1;
   }
-  ${ShowCard}:hover & { //ShowCard is general card for shows
+  ${ShowCard}:hover & {
+    //ShowCard is general card for shows
     opacity: 1;
   }
 `;
