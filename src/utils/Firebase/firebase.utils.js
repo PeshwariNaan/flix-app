@@ -20,7 +20,7 @@ import {
   writeBatch,
   query,
   getDocs,
-  where
+  where,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -106,6 +106,8 @@ export const createUserDocumentFromAuth = async (
         email,
         createdAt,
         ...additionalInfo,
+
+        
       });
     } catch (error) {
       console.log('Error creating user', error.message);
@@ -117,12 +119,29 @@ export const createUserDocumentFromAuth = async (
 
 //Add a value to the bookmarks array for individual user
 export const addBookmarkForUser = async (userAuth, showId) => {
-  console.log('addBookmark fired', 'userID', userAuth.uid, 'showID', showId);
-  const userRef = doc(db, 'users', userAuth.uid);
-  await updateDoc(userRef, {
-    bookmarks: arrayUnion(showId),
-  });
+  const bmRef = collection(db, 'users')
+  // await bmRef.doc(userAuth.uid).collection('bookmarks').doc().set({
+  //   favorites: []
+  // })
+  // const bookmarks = {
+  //   useruid: userAuth.uid,
+  //   favorites: []
+  //    } 
+  
+  try {
+    collection(db, "users").doc(userAuth.uid).collection('bookmarks').doc().set({
+      favorites: []
+    })
+    // collection(db,'users').doc(userAuth.uid).add(bookmarks);
+  }catch(error){
+    console.log('error creating bookmark', error.message)
+  } 
 };
+
+ // const userRef = doc(db, 'users', userAuth.uid);
+  // await updateDoc(userRef, {
+  //   bookmarks: arrayUnion(showId),
+  // });
 
 export const deleteBookmarkForUser = async (userAuth, showId) => {
   console.log('deleteBookmark fired', 'userID', userAuth.uid, 'showID', showId);
@@ -133,14 +152,13 @@ export const deleteBookmarkForUser = async (userAuth, showId) => {
 };
 
 export const getUserData = async (user) => {
-  console.log('user', user)
-  if(user !== null){
-    const displayName = user.displayName
-    const bookmarks = user['bookmarks']
-    const email = user.email
-    console.log('getUserData fired', displayName, email, bookmarks)
+  console.log('user', user);
+  if (user !== null) {
+    const displayName = user.displayName;
+    const bookmarks = user['bookmarks'];
+    const email = user.email;
+    console.log('getUserData fired', displayName, email, bookmarks);
   }
-
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
