@@ -20,7 +20,7 @@ export const ItemContainer = styled.div`
     z-index: 100;
   }
 
-  @media (max-width: 811px) {
+  @media (max-width: 821px) {
     flex: 0 0 50rem;
   }
 
@@ -35,7 +35,7 @@ export const ShowInfoDiv = styled.div`
   bottom: 3rem;
   left: 2rem;
 
-  @media (max-width: 811px) {
+  @media (max-width: 821px) {
     bottom: .5rem;
     left: 1rem;
   }
@@ -58,7 +58,7 @@ export const ItemPlayButtonContainer = styled.div`
     opacity: 1;
   }
 
-  @media (max-width: 810px) {
+  @media (max-width: 821px) {
     display: none !important;
   }
 `;
@@ -82,7 +82,7 @@ export const BookmarkButtonContainer = styled.div`
   left: 88%;
   top: 2rem;
 
-  @media (max-width: 810px) {
+  @media (max-width: 821px) {
     top: 1rem;
   }
   @media (max-width: 500px) {

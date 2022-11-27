@@ -1,7 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { SliderContext } from '../../../store/sliderContext';
 import { DisplayContext } from '../../../store/displayContext';
-import { SliderProvider } from '../../../store/sliderContext';
 import SlideButton from '../Slide-Button/SlideButton';
 import SliderWrapper from '../SliderWrapper';
 import useSliding from '../../../hooks/useSliding.hook';

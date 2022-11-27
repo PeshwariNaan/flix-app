@@ -12,7 +12,7 @@ export const DetailsButton = styled.button`
   background: transparent;
   outline: none;
 
-  @media (max-width: 811px) {
+  @media (max-width: 821px) {
     width: 4rem;
     height: 4rem;
     opacity: 1;

@@ -32,7 +32,7 @@ export const CardPlayButtonContainer = styled.div`
   bottom: 45%;
   opacity: 0;
 
-  @media (max-width: 811px){
+  @media (max-width: 821px){
     display: none;
   }
 
@@ -57,7 +57,7 @@ position: absolute;
 right: 5rem;
 bottom: 3rem;
 
-@media (max-width: 810px){
+@media (max-width: 821px){
     bottom: 8rem;
 }
 `
