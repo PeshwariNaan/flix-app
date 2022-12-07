@@ -16,13 +16,13 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
-      console.log('user-context', user);
+      //console.log('user-context', user);
       if (user) {
         createUserDocumentFromAuth(user);
       }
       const thisUser = auth.currentUser
       if(thisUser !== null){
-        console.log('this user', thisUser)
+        //console.log('this user', thisUser)
         const bookmarks = thisUser.bookmarks
         const displayName = thisUser.displayName
         const yourEmail = thisUser.email

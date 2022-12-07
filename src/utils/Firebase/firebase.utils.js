@@ -12,8 +12,6 @@ import {
   getFirestore,
   doc,
   updateDoc,
-  arrayUnion,
-  arrayRemove,
   getDoc,
   setDoc,
   addDoc,
@@ -21,7 +19,10 @@ import {
   writeBatch,
   query,
   getDocs,
+  arrayUnion,
+  arrayRemove,
   where,
+  documentId,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -118,21 +119,33 @@ export const createUserDocumentFromAuth = async (
 
 //Add a value to the bookmarks array for individual user
 export const addBookmarkForUser = async (userAuth, showId) => {
-  const bookmarksCollectionRef = collection(
-    db,
-    'users',
-    userAuth.uid,
-    'bookmarks'
-  );
-  console.log(userAuth.uid);
-  try {
-    await addDoc(collection(db, 'users', userAuth.uid, 'bookmarks'), {
-      showId: showId,
-    });
+  const bookmarkDocRef = collection(db, 'users', userAuth.uid, 'bookmarks')
+  const bookmarkSnapshot = await getDocs(bookmarkDocRef)
+  let userBookmarkDocId
+  if(bookmarkSnapshot){   
+    bookmarkSnapshot.forEach((doc) => {
+      if(doc.id){
+        userBookmarkDocId = doc.id
+        console.log(userBookmarkDocId)
+      }
+    })    
+  }  
+  try {    
+    if(!bookmarkSnapshot) {
+      await addDoc((collection(db, 'users', userAuth.uid, 'bookmarks'), {
+        favorites: [{showId: showId}],
+      }))
+    }else {
+      const userBookmarkRef = doc(db, 'users', userAuth.uid, 'bookmarks', userBookmarkDocId)
+      await updateDoc(userBookmarkRef, {
+        favorites: arrayUnion({showId: showId})
+      })}
+    
   } catch (error) {
     console.log('Error creating bookmark', error.message);
   }
 };
+
 
 export const deleteBookmarkForUser = async (userAuth, showId) => {
   console.log('deleteBookmark fired', 'userID', userAuth.uid, 'showID', showId);
