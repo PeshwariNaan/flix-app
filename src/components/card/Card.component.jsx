@@ -31,8 +31,7 @@ const Card = ({ show, trending, bookmarked }) => {
         <BookmarkButton
           bookmarked={bookmarked}
           onClick={() => {
-            addBookmarkForUser(currentUser, show.id),
-            getUserData(currentUser);
+            addBookmarkForUser(currentUser, show.id)            
           }}
         />
       </BookmarkButtonContainer>

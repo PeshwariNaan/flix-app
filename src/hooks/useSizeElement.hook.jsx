@@ -8,7 +8,7 @@ const useSizeElement = () => {
   useEffect(() => {   
     setTimeout(() => {
       setWidth(elementRef.current.clientWidth)
-      }, 2000);
+      }, 1000);
     
   }, [elementRef.current]);
 

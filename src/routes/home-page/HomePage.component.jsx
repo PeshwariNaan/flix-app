@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import { ShowContext } from '../../store/showContext';
 import { SliderProvider } from '../../store/sliderContext';
 import Card from '../../components/card/Card.component';
@@ -15,11 +15,14 @@ import {
   ShowsContainer,
   TrendingContainer,
 } from './homePage.styles';
+import { useResolvedPath } from 'react-router-dom';
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchCheck, setSearchCheck] = useState(false);
+  const [trending, setTrending] = useState([])
+  const [loading, setLoading] = useState(false)
   const { allShows } = useContext(ShowContext);
 
   const { isOpen, onHideDetails } = useContext(DisplayContext);
@@ -46,6 +49,25 @@ const HomePage = () => {
     setSearchCheck(false);
   };
 
+  const getTrend = () => {
+    setLoading(true)
+    const testTrend = allShows.filter((trndShow) => {
+      if(trndShow.isTrending === true){
+        return trndShow
+      }else {
+        return false
+      }      
+    })
+    setTrending(testTrend)
+    setLoading(false)
+  }
+  useEffect(() => {
+    getTrend()  
+   
+  }, [])
+  
+  
+
   return (
     <Fragment>
       <MainShowContainer>
@@ -59,12 +81,14 @@ const HomePage = () => {
         />
         {searchResults.length === 0 && !searchCheck ? (
           <Fragment>
+            {loading ? <h1>Loading...</h1> : ( 
+              <>
             <HeadingsContainer>
               <h1>Trending</h1>
             </HeadingsContainer>
             <TrendingContainer>
               <SliderProvider>
-                <Slider>
+                <Slider>                  
                   {allShows
                     .filter((show) => {
                       if (show.isTrending === true) {
@@ -82,6 +106,8 @@ const HomePage = () => {
                 </Slider>
               </SliderProvider>
             </TrendingContainer>
+            </>
+            )}
             <HeadingsContainer>
               <h1>Recommended for you</h1>
             </HeadingsContainer>
