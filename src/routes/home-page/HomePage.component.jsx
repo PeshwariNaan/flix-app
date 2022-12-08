@@ -6,6 +6,7 @@ import ResultsError from '../../components/results-error/ResultsError';
 import Item from '../../components/flix-slider/Item/Item';
 import Slider from '../../components/flix-slider/Slider/Slider';
 import DetailsModal from '../../components/UI/DetailsModal';
+import Loader from '../../components/loader/Loader';
 import { DisplayContext } from '../../store/displayContext';
 import SearchBox from '../../components/Search-Box/SearchBox';
 import ResultsBox from '../../components/results-box/ResultsBox';
@@ -15,16 +16,16 @@ import {
   ShowsContainer,
   TrendingContainer,
 } from './homePage.styles';
-import { useResolvedPath } from 'react-router-dom';
+
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchCheck, setSearchCheck] = useState(false);
   const [trending, setTrending] = useState([])
-  const [loading, setLoading] = useState(false)
-  const { allShows } = useContext(ShowContext);
-
+  //const [loading, setLoading] = useState(false)
+  const { allShows, loading, allShowsTotal } = useContext(ShowContext);
+  console.log('allShowsTotal', allShowsTotal)
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
   const handleSearchQuery = (e) => {
@@ -49,23 +50,27 @@ const HomePage = () => {
     setSearchCheck(false);
   };
 
-  const getTrend = () => {
-    setLoading(true)
-    const testTrend = allShows.filter((trndShow) => {
-      if(trndShow.isTrending === true){
-        return trndShow
-      }else {
-        return false
-      }      
-    })
-    setTrending(testTrend)
-    setLoading(false)
-  }
-  useEffect(() => {
-    getTrend()  
+  // const getTrend = () => {
+  //   setLoading(true)
+  //   const testTrend = allShows.filter((trndShow) => {
+  //     if(trndShow.isTrending === true){
+  //       return trndShow
+  //     }else {
+  //       return false
+  //     }      
+  //   })
+  //   setTrending(testTrend)
+  //   setLoading(false)
+  // }
+  // useEffect(() => {
+  //   getTrend()  
    
-  }, [])
-  
+  // }, [])
+  if(loading){
+    return (
+      <Loader />
+    )
+  }else {
   
 
   return (
@@ -89,7 +94,7 @@ const HomePage = () => {
             <TrendingContainer>
               <SliderProvider>
                 <Slider>                  
-                  {allShows
+                  {allShowsTotal
                     .filter((show) => {
                       if (show.isTrending === true) {
                         return show;
@@ -112,7 +117,7 @@ const HomePage = () => {
               <h1>Recommended for you</h1>
             </HeadingsContainer>
             <ShowsContainer>
-              {allShows
+              {allShowsTotal
                 .filter((show) => {
                   if (show.isTrending !== true) {
                     return show;
@@ -130,6 +135,7 @@ const HomePage = () => {
                   );
                 })}
             </ShowsContainer>
+
           </Fragment>
         ) : searchCheck && searchResults.length === 0 ? (
           <ResultsError query={searchQuery} exitResults={clearInputHandler} />
@@ -143,6 +149,6 @@ const HomePage = () => {
         {isOpen && <DetailsModal onClose={onHideDetails} />}
       </MainShowContainer>
     </Fragment>
-  );
+  );}
 };
 export default HomePage;

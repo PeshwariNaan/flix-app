@@ -6,6 +6,7 @@ export const MoviesMainContainer = styled.div`
   width: calc(100% - 20rem);
   float: right;
 
+
   @media (max-width: 900px) {
     width: 100%;
     float: null;

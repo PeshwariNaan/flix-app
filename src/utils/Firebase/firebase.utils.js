@@ -120,16 +120,9 @@ export const createUserDocumentFromAuth = async (
 //Add a value to the bookmarks array for individual user
 export const addBookmarkForUser = async (userAuth, showId) => {
   const bookmarkDocRef = collection(db, 'users', userAuth.uid, 'bookmarks')
-  const bookmarkSnapshot = await getDocs(bookmarkDocRef)
-  let userBookmarkDocId
-  if(bookmarkSnapshot){   
-    bookmarkSnapshot.forEach((doc) => {
-      if(doc.id){
-        userBookmarkDocId = doc.id
-        console.log(userBookmarkDocId)
-      }
-    })    
-  }  
+  const bookmarkSnapshot = await getDocs(bookmarkDocRef)  
+    const userBookmarkDocId = bookmarkSnapshot.docs[0].id;
+    console.log('userBookmarkDocId', userBookmarkDocId)   
   try {    
     if(!bookmarkSnapshot) {
       await addDoc((collection(db, 'users', userAuth.uid, 'bookmarks'), {
