@@ -22,9 +22,7 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchCheck, setSearchCheck] = useState(false);
-  const [trending, setTrending] = useState([])
-  //const [loading, setLoading] = useState(false)
-  const { allShows, loading, allShowsTotal } = useContext(ShowContext);
+  const { loading, allShowsTotal } = useContext(ShowContext);
   console.log('allShowsTotal', allShowsTotal)
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
@@ -37,7 +35,7 @@ const HomePage = () => {
     setSearchCheck(true);
     searchQuery
       ? setSearchResults(
-          allShows.filter((show) => {
+          allShowsTotal.filter((show) => {
             return show.title.toLocaleLowerCase().includes(searchQuery);
           })
         )
@@ -50,22 +48,6 @@ const HomePage = () => {
     setSearchCheck(false);
   };
 
-  // const getTrend = () => {
-  //   setLoading(true)
-  //   const testTrend = allShows.filter((trndShow) => {
-  //     if(trndShow.isTrending === true){
-  //       return trndShow
-  //     }else {
-  //       return false
-  //     }      
-  //   })
-  //   setTrending(testTrend)
-  //   setLoading(false)
-  // }
-  // useEffect(() => {
-  //   getTrend()  
-   
-  // }, [])
   if(loading){
     return (
       <Loader />

@@ -66,9 +66,6 @@ export const ShowProvider = ({ children }) => {
   const value = {
     allShowsTotal: state.allShowsTotal,
     loading: state.loading,
-    allShows,
-    movies,
-    series,
     bookmarkedShows
   };
 
@@ -78,11 +75,6 @@ export const ShowProvider = ({ children }) => {
       const showsArray = await getCategoriesAndDocuments('moviesAndShows')
       const allShowsArray = showsArray[0].items.concat(showsArray[1].items);
       dispatch({type: SHOW_ACTION_TYPES.GET_ALL_SHOWS_SUCCESS, payload: allShowsArray}) 
-      const moviesArray = showsArray[0].items;
-      const seriesArray = showsArray[1].items;
-      setAllShows(allShowsArray);
-      setMovies(moviesArray);
-      setSeries(seriesArray);
       const bookmarkedShows = allShowsArray.filter((show) => {
         if(show.isBookmarked === true){
           return show
