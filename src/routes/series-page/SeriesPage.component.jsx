@@ -47,7 +47,7 @@ const SeriesPage = () => {
   }
   useEffect(() => {
     getSeriesData()
-  }, [])
+  }, [allShowsTotal])
   
 
   const clearInputHandler = () => {

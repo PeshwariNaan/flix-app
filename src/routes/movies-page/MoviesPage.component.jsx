@@ -38,7 +38,7 @@ const MoviesPage = () => {
 
   useEffect(() => {
     getMoviesData();
-  }, []);
+  }, [allShowsTotal]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();

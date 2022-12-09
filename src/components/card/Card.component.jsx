@@ -5,10 +5,8 @@ import PlayButton from '../Play-Button/PlayButton';
 import BookmarkButton from '../Bookmark-button/BookmarkButton';
 import { DisplayContext } from '../../store/displayContext';
 import { UserContext } from '../../store/userContext';
-import {
-  addBookmarkForUser,
-  getUserData,
-} from '../../utils/Firebase/firebase.utils';
+import { ShowContext } from '../../store/showContext';
+import { addBookmarkForUser } from '../../utils/Firebase/firebase.utils';
 import {
   ShowCard,
   CardPlayButtonContainer,
@@ -19,7 +17,7 @@ import {
 const Card = ({ show, trending, bookmarked }) => {
   const { onShowDetails } = useContext(DisplayContext);
   const { currentUser } = useContext(UserContext);
-
+  const { toggleIsBookmarked } = useContext(ShowContext);
 
   return (
     <ShowCard>
@@ -31,7 +29,7 @@ const Card = ({ show, trending, bookmarked }) => {
         <BookmarkButton
           bookmarked={bookmarked}
           onClick={() => {
-            addBookmarkForUser(currentUser, show.id)            
+            toggleIsBookmarked(show.id);
           }}
         />
       </BookmarkButtonContainer>
