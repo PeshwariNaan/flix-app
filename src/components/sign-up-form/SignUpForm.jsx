@@ -54,6 +54,7 @@ const SignUpForm = (props) => {
   };
 
   return (
+    <>
     <SignUpContainer>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
@@ -90,7 +91,9 @@ const SignUpForm = (props) => {
           value={confirmPassword}
         />
         <ButtonsContainer>
-          <Button type="submit">Sign Up</Button>
+          <Button 
+          disabled={true}
+          type="submit">Sign Up</Button>
         </ButtonsContainer>
       </form>
       <span>
@@ -106,6 +109,8 @@ const SignUpForm = (props) => {
         </a>
       </span>
     </SignUpContainer>
+    <h4> Sign-up is diabled - use the email on the sign-in page to login</h4>
+    </>
   );
 };
 

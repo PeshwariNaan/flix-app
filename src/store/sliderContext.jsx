@@ -6,7 +6,6 @@ export const SliderContext = createContext();
 export const SliderProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { width, elementRef } = useSizeElement();  //This is giving the width of the Item component
-  console.log('context - width', width, 'elementRef', elementRef)
   
 
   const showDetailsHandler = (movie) => {
@@ -23,7 +22,6 @@ export const SliderProvider = ({ children }) => {
     onShowDetails: showDetailsHandler,
     onHideDetails: closeDetailsHandler,
     elementRef,
-   // currentSlide,
     width,
     isOpen,
  };

@@ -23,7 +23,6 @@ const HomePage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchCheck, setSearchCheck] = useState(false);
   const { loading, allShowsTotal } = useContext(ShowContext);
-  console.log('allShowsTotal', allShowsTotal)
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
   const handleSearchQuery = (e) => {
@@ -88,6 +87,7 @@ const HomePage = () => {
                         show={show}
                         key={show.id}
                         trending={show.isTrending}
+                        bookmarked={show.isBookmarked}
                       />
                     ))}
                 </Slider>
@@ -128,7 +128,7 @@ const HomePage = () => {
             exitResults={clearInputHandler}
           />
         )}
-        {isOpen && <DetailsModal onClose={onHideDetails} />}
+        {isOpen && <DetailsModal  onClose={onHideDetails} />}
       </MainShowContainer>
     </Fragment>
   );}

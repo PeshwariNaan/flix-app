@@ -7,7 +7,6 @@ export const StyledBookmarkButton = styled.button`
   border-radius: 3rem;
   //color: #fff;
   background: rgba(0, 0, 0, .5);
-  
 
   ion-icon {
     font-size: 2rem;

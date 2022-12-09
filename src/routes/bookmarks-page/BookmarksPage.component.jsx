@@ -74,11 +74,19 @@ const BookmarksPage = () => {
         {searchResults.length === 0 && !searchCheck ? (
           <>
             {allBookmarkedShows.length === 0 ? (
-              <h1> You have no bookmarks. Click on the bookmark icon and see your favorites here!</h1>
+              <h2>
+                {' '}
+                You have no bookmarks. Click on the bookmark icon and see your
+                favorites here!
+              </h2>
             ) : (
               <>
-                <ShowBox title="Bookmarked Movies" shows={bookmarkedMovies} />
-                <ShowBox title="Bookmarked Series" shows={bookmarkedSeries} />
+                {bookmarkedMovies.length > 0 ? (
+                  <ShowBox title="Bookmarked Movies" shows={bookmarkedMovies} />
+                ) : null}
+                {bookmarkedSeries.length > 0 ? (
+                  <ShowBox title="Bookmarked Series" shows={bookmarkedSeries} />
+                ) : null}
               </>
             )}
           </>

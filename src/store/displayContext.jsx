@@ -8,7 +8,6 @@ export const DisplayProvider = ({ children }) => {
 
   const showDetailsHandler = (movie) => {
     setCurrentSlide(movie);
-    console.log('showDetailsHandler clicked', {movie});
     setIsOpen(true);
   };
 

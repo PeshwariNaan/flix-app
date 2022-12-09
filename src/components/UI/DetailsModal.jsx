@@ -78,7 +78,9 @@ const ModalOverlay = (props) => {
     <OverLayDiv>
       <ShowImageContainer>
         <BookmarkButtonContainer>
-          <BookmarkButton bookmarked={currentSlide.isBookmarked} />
+          <BookmarkButton
+            bookmarked={currentSlide.isBookmarked}
+          />
         </BookmarkButtonContainer>
         <PlayButtonContainer>
           <PlayButton />

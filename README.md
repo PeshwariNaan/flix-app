@@ -70,12 +70,16 @@ In summary, I learned a lot about firebase / firestore and can fully implement a
 
 I have used react portals once before but this was great project to use them with the show details modal. This was great practice to solidify my understanding of portals and how useful they can be.
 
+Last but not least - I was able to code my own image slider. I feel I spent way too much time on this particular aspect of the project but I refused to give up. I know there are a lot of packages out there that I can use but I wanted to fully understand how to code my own. It's not very fancy but I learned a lot about how to use refs with the UseRef hook and play around with creating my own hooks. This was also great in really understanding css positioning in depth.
+
 
 ### Continued development
 
 I had areas in my project where I repeated code on each page that I needed the search-bar. I know there are more efficient ways to code this and I will refactor the code in the future. I have also been learning typescript and I would like to migrate this project over to that. 
 
 I have also been trying to focus on my productivity with my projects. I still feel like I am not moving as quickly as I could be. I have been keeping a work journal which has helped me keep focused and aided me in realizing my ideas and approaches to whatever problems I am trying to solve. I take a few minutes everyday when I finish working to write down a few thoughts and improvements I can make and then read them the next day when I start.
+
+I would also like to create a new image slider that works with an index so I can create an infinite loop like what you would find on netflix.
 
 
 

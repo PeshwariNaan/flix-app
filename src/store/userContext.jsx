@@ -22,7 +22,6 @@ export const UserProvider = ({ children }) => {
       if(thisUser !== null){
         const displayName = thisUser.displayName
         const yourEmail = thisUser.email
-        console.log('from context this user', displayName, yourEmail)
       }
       setCurrentUser(user);
     });

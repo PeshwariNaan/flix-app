@@ -17,7 +17,7 @@ export const ItemContainer = styled.div`
 
   &:hover {
     transform: ${(props) => (props.isOpen ? null : 'scale(1.1)')};
-    z-index: 100;
+    z-index: 10;
   }
 
   @media (max-width: 821px) {
@@ -36,11 +36,11 @@ export const ShowInfoDiv = styled.div`
   left: 2rem;
 
   @media (max-width: 821px) {
-    bottom: .5rem;
+    bottom: 0.5rem;
     left: 1rem;
   }
   @media (max-width: 500px) {
-    bottom: .5rem;
+    bottom: 0.5rem;
     left: 0rem;
   }
 `;
@@ -68,12 +68,13 @@ export const ShowDetailsButtonContainer = styled.div`
   width: 5rem;
   height: 5rem;
   left: 45%;
-  bottom: 0;
+  bottom: -1rem;
 
   @media (max-width: 500px) {
-    bottom: null;
-    top: 0;
-    left: 0;
+    width: 3rem;
+    height: 3rem;
+    bottom: 0;
+    left: 77%;
   }
 `;
 
@@ -83,10 +84,11 @@ export const BookmarkButtonContainer = styled.div`
   top: 2rem;
 
   @media (max-width: 821px) {
-    top: 1rem;
+    top: 0.5rem;
   }
   @media (max-width: 500px) {
-    top: 1rem;
-    left: 75%;
+    left: 77%;
+    height: 3rem;
+    width: 3rem;
   }
 `;

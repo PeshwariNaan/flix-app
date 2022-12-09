@@ -15,6 +15,14 @@ export const DetailsButton = styled.button`
   @media (max-width: 821px) {
     width: 4rem;
     height: 4rem;
+    border-radius: 4rem;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 821px) {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
     opacity: 1;
     background: rgba(0, 0, 0, 0.5);
   }
@@ -24,7 +32,7 @@ export const DetailsButton = styled.button`
     color: #fff;
     cursor: pointer;
     @media (max-width: 811px) {
-      font-size: 4rem;
+      font-size: 3rem;
     }
   }
   ${ItemContainer}:hover & {

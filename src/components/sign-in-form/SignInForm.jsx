@@ -52,6 +52,7 @@ const SignInForm = (props) => {
   };
 
   return (
+    <>
     <SignInContainer>
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
@@ -78,6 +79,7 @@ const SignInForm = (props) => {
             buttonType={BUTTON_TYPE_CLASSES.google}
             type="button"
             onClick={signInWithGoogle}
+            disabled={true}
           >
             Sign In With Google
           </Button>
@@ -95,6 +97,11 @@ const SignInForm = (props) => {
         </a>
       </span>
     </SignInContainer>
+    <h4>Sign-in with google is disabled -</h4>
+    <h4>To sign-in use:</h4>
+    <h4> email: test@test.com </h4>
+    <h4> password: 12341234 </h4>
+    </>
   );
 };
 
