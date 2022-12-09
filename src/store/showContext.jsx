@@ -17,46 +17,44 @@ const SHOW_ACTION_TYPES = {
   GET_ALL_SHOWS_REQUEST: 'GET_ALL_SHOWS_REQUEST',
   GET_ALL_SHOWS_SUCCESS: 'GET_ALL_SHOWS_SUCCESS',
   GET_ALL_SHOWS_FAIL: 'GET_ALL_SHOWS_FAIL',
-  GET_MOVIES: 'GET_MOVIES',
-  GET_SERIES: 'GET_SERIES',
-  GET_BOOKMARKED:'GET_BOOKMARKED',
-}
+  TOGGLE_BOOKMARK: 'TOGGLE_BOOKMARK',
+};
 
 const initialState = {
   loading: false,
   allShowsTotal: [],
-}
+};
 
 const showReducer = (state, action) => {
-  switch(action.type){
+  switch (action.type) {
     case SHOW_ACTION_TYPES.GET_ALL_SHOWS_REQUEST:
       return {
         loading: true,
-        allShowsTotal: []
-      }
+        allShowsTotal: [],
+      };
     case SHOW_ACTION_TYPES.GET_ALL_SHOWS_SUCCESS:
       return {
         ...state,
         loading: false,
+        allShowsTotal: action.payload,
+      };
+    case SHOW_ACTION_TYPES.GET_ALL_SHOWS_FAIL:
+      return {
+        loading: false,
+      };
+    case SHOW_ACTION_TYPES.TOGGLE_BOOKMARK:
+      return {
+        ...state,
         allShowsTotal: action.payload
       }
-      case SHOW_ACTION_TYPES.GET_ALL_SHOWS_FAIL:
-        return {
-          loading: false,          
-        }
-      default:
+    default:
       return state;
   }
-}
+};
 
 export const ShowProvider = ({ children }) => {
   const [state, dispatch] = useReducer(showReducer, initialState);
-  const [allShows, setAllShows] = useState([]);
-  const [movies, setMovies] = useState([]);
-  const [series, setSeries] = useState([]);
-  const [bookmarkedShows, setBookmarkedShows] = useState([])  
 
-  
   // This was run once to populate the firestore db with our data file - SHOW_DATA// Here for demonstration only - no need to run after
   // data has been uploaded once.
   // useEffect(() => {
@@ -66,36 +64,45 @@ export const ShowProvider = ({ children }) => {
   const value = {
     allShowsTotal: state.allShowsTotal,
     loading: state.loading,
-    bookmarkedShows
+
+    toggleIsBookmarked: (showId) => {
+      const alteredShowList = toggleBookmark(showId);
+      dispatch({
+        type: SHOW_ACTION_TYPES.TOGGLE_BOOKMARK,
+        payload: alteredShowList,
+      });
+    },
   };
 
-  const fetchShows = async() => {
-    dispatch({type: SHOW_ACTION_TYPES.GET_ALL_SHOWS_REQUEST})
+  //Bookmark toggle helper function
+  const toggleBookmark = (showId) => {
+    const updatedShowList = state.allShowsTotal.map((show) => {
+      if (show.id === showId) {
+        return { ...show, isBookmarked: !show.isBookmarked };
+      }
+      return show;
+    });
+    return updatedShowList;
+  };
+
+  const fetchShows = async () => {
+    dispatch({ type: SHOW_ACTION_TYPES.GET_ALL_SHOWS_REQUEST });
     try {
-      const showsArray = await getCategoriesAndDocuments('moviesAndShows')
+      const showsArray = await getCategoriesAndDocuments('moviesAndShows');
       const allShowsArray = showsArray[0].items.concat(showsArray[1].items);
-      dispatch({type: SHOW_ACTION_TYPES.GET_ALL_SHOWS_SUCCESS, payload: allShowsArray}) 
-      const bookmarkedShows = allShowsArray.filter((show) => {
-        if(show.isBookmarked === true){
-          return show
-        }else{
-          return false
-        }
-      })
-      setBookmarkedShows(bookmarkedShows)
-      console.log(bookmarkedShows)
-      
-    }catch(error) {
-      dispatch({type: SHOW_ACTION_TYPES.GET_ALL_SHOWS_FAIL}) 
-      console.log('error getting data', error.message)
+      dispatch({
+        type: SHOW_ACTION_TYPES.GET_ALL_SHOWS_SUCCESS,
+        payload: allShowsArray,
+      });
+    } catch (error) {
+      dispatch({ type: SHOW_ACTION_TYPES.GET_ALL_SHOWS_FAIL });
+      console.log('error getting data', error.message);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchShows()
+    fetchShows();
   }, []);
-
- 
 
   return <ShowContext.Provider value={value}>{children}</ShowContext.Provider>;
 };

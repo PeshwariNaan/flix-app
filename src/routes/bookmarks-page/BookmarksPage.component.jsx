@@ -8,35 +8,38 @@ import ShowBox from '../../components/show-box-container/ShowBox';
 import ResultsBox from '../../components/results-box/ResultsBox';
 import {
   BookmarkedShowsMainContainer,
-  BookmarkedShowsContainer,
-  BookmarkedHeadingsContainer,
 } from './bookmarksPage.styles';
 
 const BookmarksPage = (props) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [allBookmarkedShows, setAllBookmarkedShows] = useState([])
   const [bookmarkedMovies, setBookmarkedMovies] = useState([]);
   const [bookmarkedSeries, setBookmarkedSeries] = useState([]);
   const [searchCheck, setSearchCheck] = useState(false);
-  const { bookmarkedShows } = useContext(ShowContext);
+  const { allShowsTotal } = useContext(ShowContext);
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
-  const divideShowsHandler = () => {
-    const bmSeries = [];
-    const bmMovies = bookmarkedShows.filter((bmShow) => {
-      if (bmShow.category === 'Movie') {
-        return bmShow;
-      } else {
-        bmSeries.push(bmShow);
+  const getBookmarksData = () => {
+    const bkMovies = []
+    const bkSeries = []
+    const bkAll = []
+    allShowsTotal.filter((show) => {
+      if(show.isBookmarked === true && show.category === 'Movie'){
+        bkMovies.push(show) && bkAll.push(show)
+      }if(show.isBookmarked === true && show.category === 'TV Series'){
+        bkSeries.push(show) && bkAll.push(show)
       }
-    });
-    setBookmarkedMovies(bmMovies);
-    setBookmarkedSeries(bmSeries);
-  };
+      
+    })
+    setAllBookmarkedShows(bkAll)
+    setBookmarkedMovies(bkMovies)
+    setBookmarkedSeries(bkSeries)
+  }
 
   useEffect(() => {
-    divideShowsHandler();
-  }, []);
+    getBookmarksData()
+  }, [allShowsTotal]);
 
   const handleSearchQuery = (e) => {
     setSearchQuery(e.target.value.toLocaleLowerCase());
@@ -47,7 +50,7 @@ const BookmarksPage = (props) => {
     setSearchCheck(true)
     searchQuery
       ? setSearchResults(
-          bookmarkedShows.filter((show) => {
+        allBookmarkedShows.filter((show) => {
             return show.title.toLocaleLowerCase().includes(searchQuery);
           })
         )
