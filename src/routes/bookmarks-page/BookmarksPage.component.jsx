@@ -6,14 +6,12 @@ import { DisplayContext } from '../../store/displayContext';
 import SearchBox from '../../components/Search-Box/SearchBox';
 import ShowBox from '../../components/show-box-container/ShowBox';
 import ResultsBox from '../../components/results-box/ResultsBox';
-import {
-  BookmarkedShowsMainContainer,
-} from './bookmarksPage.styles';
+import { BookmarkedShowsMainContainer } from './bookmarksPage.styles';
 
-const BookmarksPage = (props) => {
+const BookmarksPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [allBookmarkedShows, setAllBookmarkedShows] = useState([])
+  const [allBookmarkedShows, setAllBookmarkedShows] = useState([]);
   const [bookmarkedMovies, setBookmarkedMovies] = useState([]);
   const [bookmarkedSeries, setBookmarkedSeries] = useState([]);
   const [searchCheck, setSearchCheck] = useState(false);
@@ -21,24 +19,24 @@ const BookmarksPage = (props) => {
   const { isOpen, onHideDetails } = useContext(DisplayContext);
 
   const getBookmarksData = () => {
-    const bkMovies = []
-    const bkSeries = []
-    const bkAll = []
+    const bkMovies = [];
+    const bkSeries = [];
+    const bkAll = [];
     allShowsTotal.filter((show) => {
-      if(show.isBookmarked === true && show.category === 'Movie'){
-        bkMovies.push(show) && bkAll.push(show)
-      }if(show.isBookmarked === true && show.category === 'TV Series'){
-        bkSeries.push(show) && bkAll.push(show)
+      if (show.isBookmarked === true && show.category === 'Movie') {
+        bkMovies.push(show) && bkAll.push(show);
       }
-      
-    })
-    setAllBookmarkedShows(bkAll)
-    setBookmarkedMovies(bkMovies)
-    setBookmarkedSeries(bkSeries)
-  }
+      if (show.isBookmarked === true && show.category === 'TV Series') {
+        bkSeries.push(show) && bkAll.push(show);
+      }
+    });
+    setAllBookmarkedShows(bkAll);
+    setBookmarkedMovies(bkMovies);
+    setBookmarkedSeries(bkSeries);
+  };
 
   useEffect(() => {
-    getBookmarksData()
+    getBookmarksData();
   }, [allShowsTotal]);
 
   const handleSearchQuery = (e) => {
@@ -47,10 +45,10 @@ const BookmarksPage = (props) => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    setSearchCheck(true)
+    setSearchCheck(true);
     searchQuery
       ? setSearchResults(
-        allBookmarkedShows.filter((show) => {
+          allBookmarkedShows.filter((show) => {
             return show.title.toLocaleLowerCase().includes(searchQuery);
           })
         )
@@ -60,7 +58,7 @@ const BookmarksPage = (props) => {
   const clearInputHandler = () => {
     setSearchQuery('');
     setSearchResults([]);
-    setSearchCheck(false)
+    setSearchCheck(false);
   };
   return (
     <Fragment>
@@ -75,8 +73,14 @@ const BookmarksPage = (props) => {
         />
         {searchResults.length === 0 && !searchCheck ? (
           <>
-            <ShowBox title="Bookmarked Movies" shows={bookmarkedMovies} />
-            <ShowBox title="Bookmarked Series" shows={bookmarkedSeries} />
+            {allBookmarkedShows.length === 0 ? (
+              <h1> You have no bookmarks. Click on the bookmark icon and see your favorites here!</h1>
+            ) : (
+              <>
+                <ShowBox title="Bookmarked Movies" shows={bookmarkedMovies} />
+                <ShowBox title="Bookmarked Series" shows={bookmarkedSeries} />
+              </>
+            )}
           </>
         ) : searchCheck && searchResults.length === 0 ? (
           <ResultsError query={searchQuery} exitResults={clearInputHandler} />

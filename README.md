@@ -52,7 +52,8 @@ Users should be able to:
 
 - React
 - [React Router 6](https://github.com/remix-run/react-router/blob/main/docs/getting-started/tutorial.md)
-- Firebase / Firestore
+- Firebase / Firestore v9
+- React Portals
 - Vite
 - CSS Grid
 - Flexbox
@@ -63,12 +64,16 @@ Users should be able to:
 
 ### What I learned
 
-There was a lot to digest with this particular project with learning and Firebase / Firestore. I have used Firebase before in classes I have taken, but the way I implemented this project felt more complicated with how I was creating and querying the collections. I felt the documentation was not very easy to understand and in the end I felt like it took too much time. Creating user documents for authentication went well but I did have problems trying to figure out how to store bookmarks for individual users.
+There was a lot to digest with this particular project with learning and Firebase / Firestore. I have used Firebase before in classes I have taken, but the way I implemented this project felt more complicated with how I was creating and querying the collections. I felt the documentation was not very easy to understand and in the end I felt like it took too much time. Creating user documents for authentication went well but I did have problems trying to figure out how to store bookmarks for individual users. As things stand now, I can add user bookmarks to an array in a document and delete them in Firestore. I have not yet implemented retrieving the bookmarks on the initial load. The basic bookmarks function works fine now but the data will not persist. 
+
+In summary, I learned a lot about firebase / firestore and can fully implement authentication and different types of log-in/sign-in methods such as sign-in with google or any other third party authentication. I understand how the creation of collections and documents (especially nested) are created and fetched.
+
+I have used react portals once before but this was great project to use them with the show details modal. This was great practice to solidify my understanding of portals and how useful they can be.
 
 
 ### Continued development
 
-I had areas in my project where I repeated code on each page that I needed the search-bar. I know there are more efficient ways to code this and I will refactor the code in the future. I have also been learning typescript and I would like to migrate this project over to that. I would also like to implement Redux-toolkit and replace context.
+I had areas in my project where I repeated code on each page that I needed the search-bar. I know there are more efficient ways to code this and I will refactor the code in the future. I have also been learning typescript and I would like to migrate this project over to that. 
 
 I have also been trying to focus on my productivity with my projects. I still feel like I am not moving as quickly as I could be. I have been keeping a work journal which has helped me keep focused and aided me in realizing my ideas and approaches to whatever problems I am trying to solve. I take a few minutes everyday when I finish working to write down a few thoughts and improvements I can make and then read them the next day when I start.
 
