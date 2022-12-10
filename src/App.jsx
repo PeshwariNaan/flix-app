@@ -20,7 +20,6 @@ function App() {
         <Nav hasUser={currentUser} />
         <Routes>
           <Route path="authenticate" element={<Authentication />} />
-          <Route index element={<Authentication />} />
           <Route element={<ProtectedRoute user={currentUser} />}>
             <Route path="home" element={<HomePage />} />
             <Route path="movies" element={<MoviesPage />} />

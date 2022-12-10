@@ -8,7 +8,7 @@ import { UserProvider } from './store/userContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename='/flix'>
+    <BrowserRouter >
       <UserProvider>
         <ShowProvider>
           <DisplayProvider>
