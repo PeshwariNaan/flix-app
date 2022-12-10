@@ -24,16 +24,16 @@ const Nav = (props) => {
         <FlixIcon src={Logo} />
       </FlixIconContainer>
       <NavButtonsContainer>
-        <NavItem link="/home" clicked={props.clicked}>
+        <NavItem link="home" clicked={props.clicked}>
           <IconImage src={NavHome} />
         </NavItem>
-        <NavItem link="/movies">
+        <NavItem link="movies">
           <IconImage src={MovieIcon} />
         </NavItem>
-        <NavItem link="/tvseries">
+        <NavItem link="tvseries">
           <IconImage src={TvIcon} />
         </NavItem>
-        <NavItem link="/bookmarks">
+        <NavItem link="bookmarks">
           <IconImage src={BookmarkIcon} />
         </NavItem>
       </NavButtonsContainer>

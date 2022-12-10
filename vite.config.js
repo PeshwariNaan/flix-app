@@ -4,6 +4,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: 'https://github.com/PeshwariNaan/flix-app',
   plugins: [svgr(), react()]
 })
 

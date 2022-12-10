@@ -7,7 +7,7 @@ import HomePage from './routes/home-page/HomePage.component';
 import BookmarksPage from './routes/bookmarks-page/BookmarksPage.component';
 import Nav from './components/navigation/Nav.component';
 import ProtectedRoute from './routes/protected-route/ProtectedRoute.component';
-import Authentication from './routes/authentication-page/Authentication.component'
+import Authentication from './routes/authentication-page/Authentication.component';
 import { GlobalStyles } from './theme';
 import './App.css';
 
@@ -17,13 +17,12 @@ function App() {
     <Fragment>
       <GlobalStyles />
       <main>
-        <Nav hasUser={currentUser}/>
+        <Nav hasUser={currentUser} />
         <Routes>
+          <Route path="authenticate" element={<Authentication />} />
           <Route index element={<Authentication />} />
-          <Route path="authentication" element={<Authentication />} />
-          <Route element={<ProtectedRoute user={currentUser} />}>            
-            <Route index element={<HomePage />} />
-            <Route path='/home' element={<HomePage />} />
+          <Route element={<ProtectedRoute user={currentUser} />}>
+            <Route path="home" element={<HomePage />} />
             <Route path="movies" element={<MoviesPage />} />
             <Route path="tvseries" element={<SeriesPage />} />
             <Route path="bookmarks" element={<BookmarksPage />} />
