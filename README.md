@@ -44,7 +44,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github-rep](https://github.com/PeshwariNaan/flix-app.git)
-- Live Site URL: [Live-Link](https://your-live-site-url.com)
+- Live Site URL: [Live-Link](https://peshwarinaan.github.io/flix-app/)
 
 ## My process
 
