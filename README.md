@@ -68,6 +68,8 @@ There was a lot to digest with this particular project with learning and Firebas
 
 In summary, I learned a lot about firebase / firestore and can fully implement authentication and different types of log-in/sign-in methods such as sign-in with google or any other third party authentication. I understand how the creation of collections and documents (especially nested) are created and fetched.
 
+I learned how to create protected routes with React-router v6.
+
 I have used react portals once before but this was great project to use them with the show details modal. This was great practice to solidify my understanding of portals and how useful they can be.
 
 Last but not least - I was able to code my own image slider. I feel I spent way too much time on this particular aspect of the project but I refused to give up. I know there are a lot of packages out there that I can use but I wanted to fully understand how to code my own. It's not very fancy but I learned a lot about how to use refs with the UseRef hook and play around with creating my own hooks. This was also great in really understanding css positioning in depth.
