@@ -1,6 +1,7 @@
-# Frontend Mentor - Entertainment web app solution
+# Entertainment-movie and show app
 
-This is a solution to the [Entertainment web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X). 
+A web-app based on the idea of netflix where the user can create a login and view movies and shows and create bookmarks. There are no videos linked to the cards, it is specifically for web development learning through challenges on [Frontend Mentor](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X). The only material given for the challenge are Figma files that describe the desired layout for the design. All coding is 100% done by the person accepting the challenge.
+This is a solution to the Entertainment web app challenge.
 
 ## Table of contents
 
